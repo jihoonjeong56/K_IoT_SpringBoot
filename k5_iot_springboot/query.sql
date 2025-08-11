@@ -5,4 +5,49 @@ CREATE DATABASE IF NOT EXISTS k5_iot_springboot CHARACTER SET utf8mb4 COLLATE ut
 # 3. 스키나 선택
 USE k5_iot_springboot;
 
+# 0811 (A_Test)
+CREATE TABLE IF NOT EXISTS test(
+	id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL
+);
+SELECT * FROM test;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
