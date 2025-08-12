@@ -18,5 +18,4 @@ public class K5IotSpringbootApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(K5IotSpringbootApplication.class, args);
 	}
-
 }
