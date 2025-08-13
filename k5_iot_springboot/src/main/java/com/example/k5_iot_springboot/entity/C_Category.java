@@ -36,7 +36,8 @@ public enum C_Category {
     /*
         2) JSON 역 직렬화 시 동작 메서드
         : String >>> Enum
-        : JSON 요청값을 Enum 으로 변환할 때, Enum 이름(name)과 DB 값 (dbValue) 모두 인식
+        : JSON 요청값을 Enum 으로 변환할 때, Enum 이름(name)과
+         DB 값 (dbValue) 모두 인식
         - 대소문자 구분 안하고 값이 없거나 잘못된 경우 예외 발생
      */
     @JsonCreator

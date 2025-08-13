@@ -17,7 +17,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-// DB CHECK 와 중복 (필수 아니속 문서화 & 이식성 작업
+// DB CHECK 와 중복 (필수 아님 문서화 & 이식성 작업)
 @org.hibernate.annotations.Check(constraints = "category IN ('NOVEL', 'ESSAY','POEM','MAGAZINE')")
 public class C_Book {
     @Id
