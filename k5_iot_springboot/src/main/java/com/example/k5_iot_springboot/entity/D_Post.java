@@ -3,6 +3,8 @@ package com.example.k5_iot_springboot.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Comment;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,7 @@ public class D_Post {
     @Comment("게시글 내용")
     @Lob // 대용량 텍스트 저장 - RDBMS에서 자동으로 TEXT(CLOB) 으로 매핑
     @Column(nullable = false)
+    @JdbcTypeCode(SqlTypes.LONGVARCHAR)
     private String content; // 내용
 
     @Comment("작성자 표시명 또는 ID")

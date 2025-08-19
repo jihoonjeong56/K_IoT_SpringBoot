@@ -42,12 +42,13 @@ CREATE TABLE IF NOT EXISTS books(
 SELECT * FROM books;
 
 # 0819 D_Post & D_Comment
-
+DROP TABLE posts;
+drop table comments;
 --  게시글 테이블
 CREATE TABLE IF NOT EXISTS posts(
 	`id` 		BIGINT AUTO_INCREMENT,
     `title` 	VARCHAR(200) NOT NULL COMMENT '게시글 제목',
-    `content` TEXT NOT NULL COMMENT '게시글 내용', -- @Lob 매핑 대응
+    `content` LONGTEXT NOT NULL COMMENT '게시글 내용', -- @Lob 매핑 대응
     `author` 	VARCHAR(10) NOT NULL COMMENT '작성자 표시명 또는 ID',
     PRIMARY KEY(`id`),
     KEY `idx_post_author` (`author`)

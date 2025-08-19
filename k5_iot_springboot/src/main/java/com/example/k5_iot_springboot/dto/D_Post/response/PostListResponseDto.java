@@ -14,7 +14,7 @@ public record PostListResponseDto(
         String author
 ) {
     public static PostListResponseDto from(D_Post post) {
-        if(post == null)return null;
+        if (post == null) return null;
         return new PostListResponseDto(
                 post.getId(),
                 post.getTitle(),
@@ -22,10 +22,12 @@ public record PostListResponseDto(
                 post.getAuthor()
         );
     }
-    public PostListResponseDto summarize(int maxLen){
-        String summarized = content == null ? null :
-                (content.length() <= maxLen ? content : content.substring(0, maxLen )+ "...");
 
-        return new PostListResponseDto(id, title, content, summarized);
+    public PostListResponseDto summarize(int maxLen) {
+        String summarized = content == null ? null :
+                (content.length() <= maxLen ? content : content.substring(0, maxLen) + "...");
+
+        return new PostListResponseDto(id, title, summarized, author);
+        //return new PostListResponseDto(id, title, author, summarized);
     }
 }
