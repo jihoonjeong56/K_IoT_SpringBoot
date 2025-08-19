@@ -41,6 +41,38 @@ CREATE TABLE IF NOT EXISTS books(
 );
 SELECT * FROM books;
 
+# 0819 D_Post & D_Comment
+
+--  게시글 테이블
+CREATE TABLE IF NOT EXISTS posts(
+	`id` 		BIGINT AUTO_INCREMENT,
+    `title` 	VARCHAR(200) NOT NULL COMMENT '게시글 제목',
+    `content` TEXT NOT NULL COMMENT '게시글 내용', -- @Lob 매핑 대응
+    `author` 	VARCHAR(10) NOT NULL COMMENT '작성자 표시명 또는 ID',
+    PRIMARY KEY(`id`),
+    KEY `idx_post_author` (`author`)
+) ENGINE = InnoDB 
+	DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '게시글';
+
+-- 댓글 테이블
+CREATE TABLE IF NOT EXISTS `comments`(
+	`id` BIGINT NOT NULL AUTO_INCREMENT,
+    `post_id` BIGINT NOT NULL COMMENT 'post.id FK',
+	`content` VARCHAR(1000) NOT NULL COMMENT '댓글 내용',
+    `commenter` VARCHAR(100) NOT NULL COMMENT '댓글 작성자 표시명 또는 ID',
+    PRIMARY KEY(`id`),
+    KEY `idx_comment_post_id`(`post_id`),
+    KEY `idx_comment_commenter`(`commenter`),
+    CONSTRAINT `fk_comment_post`
+		FOREIGN KEY(`post_id`) REFERENCES `posts` (`id`) 
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE
+    
+)ENGINE = InnoDB 
+	DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '댓글';
+
+SELECT * FROM `posts`;
+SELECT * FROM `comments`;
 
 
 
