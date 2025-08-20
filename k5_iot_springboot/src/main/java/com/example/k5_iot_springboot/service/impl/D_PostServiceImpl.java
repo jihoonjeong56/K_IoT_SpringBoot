@@ -4,6 +4,7 @@ import com.example.k5_iot_springboot.dto.D_Post.request.PostCreateRequestDto;
 import com.example.k5_iot_springboot.dto.D_Post.request.PostUpdateRequestDto;
 import com.example.k5_iot_springboot.dto.D_Post.response.PostDetailResponseDto;
 import com.example.k5_iot_springboot.dto.D_Post.response.PostListResponseDto;
+import com.example.k5_iot_springboot.dto.D_Post.response.PostWithCommentCountResponseDto;
 import com.example.k5_iot_springboot.dto.ResponseDto;
 import com.example.k5_iot_springboot.entity.D_Post;
 import com.example.k5_iot_springboot.repository.D_PostRepository;
@@ -12,8 +13,10 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
+import java.util.Objects;
 
 @RequiredArgsConstructor
 @Service
@@ -25,7 +28,14 @@ public class D_PostServiceImpl implements D_PostService {
     @Override
     @Transactional // 쓰기 트랜잭션
     public ResponseDto<PostDetailResponseDto> createPost(PostCreateRequestDto dto) {
-        D_Post post = D_Post.create(dto.title(), dto.content(), dto.author());
+        //DTO 자체가 null 인지 즉시 방어(null인 경우 NPE 발생)
+        Objects.requireNonNull(dto, "PostCreateRequestDto must not be null");
+        String title = dto.title().trim();
+        String content = dto.content().trim();
+        String author = dto.author().trim();
+
+
+        D_Post post = D_Post.create(title, content, author);
         D_Post saved = postRepository.save(post);
         return ResponseDto.setSuccess("SUCCESS", PostDetailResponseDto.from(saved));
     }
@@ -33,8 +43,10 @@ public class D_PostServiceImpl implements D_PostService {
     //2) 게시글 조회 (단건 조회 - 댓글 보여짐)
     @Override
     public ResponseDto<PostDetailResponseDto> getPostById(Long id) {
-        D_Post post = postRepository.findByIdWithComments(id)
-                .orElseThrow(()-> new EntityNotFoundException("해당 id의 게시글을 찾을수 없습니다."));
+        Long pid = requirePositiveId(id);
+
+        D_Post post = postRepository.findByIdWithComments(pid)
+                .orElseThrow(() -> new EntityNotFoundException("해당 id의 게시글을 찾을수 없습니다."));
         return ResponseDto.setSuccess("SUCCESS", PostDetailResponseDto.from(post));
     }
 
@@ -43,7 +55,7 @@ public class D_PostServiceImpl implements D_PostService {
         List<D_Post> posts = postRepository.findAllOrderByIdDesc();
         List<PostListResponseDto> result = posts.stream()
                 .map(PostListResponseDto::from)
-                .map(dto ->dto.summarize(5))
+                .map(dto -> dto.summarize(5))
                 .toList();
         return ResponseDto.setSuccess("SUCCESS", result);
     }
@@ -51,8 +63,10 @@ public class D_PostServiceImpl implements D_PostService {
     @Override
     @Transactional
     public ResponseDto<PostDetailResponseDto> updatePost(Long id, PostUpdateRequestDto dto) {
-        D_Post post = postRepository.findByIdWithComments(id)
-                .orElseThrow(()-> new EntityNotFoundException("해당 id의 게시글을 찾을 수 없습니다."));
+        Objects.requireNonNull(dto, "PostUpdateRequestDto must not be null");
+        Long pid = requirePositiveId(id);
+        D_Post post = postRepository.findByIdWithComments(pid)
+                .orElseThrow(() -> new EntityNotFoundException("해당 id의 게시글을 찾을 수 없습니다."));
         post.changeTitle(dto.title().trim());
         post.changeContent(dto.content().trim());
 
@@ -64,9 +78,87 @@ public class D_PostServiceImpl implements D_PostService {
     @Transactional
     public ResponseDto<Void> deletePost(Long id) {
         D_Post post = postRepository.findById(id)
-                .orElseThrow(()-> new EntityNotFoundException("해당 id의 게시글을 찾을 수 없습니다."));
+                .orElseThrow(() -> new EntityNotFoundException("해당 id의 게시글을 찾을 수 없습니다."));
         //orphanRemoval & cascade 설정으로 댓글은 자동 정리
         postRepository.delete(post);
         return ResponseDto.setSuccess("SUCCESS", null);
+    }
+
+
+// 특정 사용자 게시물 조회
+    /*
+    @Override
+    public ResponseDto<List<PostListResponseDto>> getPostsByAuthor(String author) {
+        List<D_Post> posts = postRepository.findByAuthor(author);
+        List<PostListResponseDto> result = posts.stream()
+                .map(PostListResponseDto::from)
+                .map(dto -> dto.summarize(5))
+                .toList();
+        return ResponseDto.setSuccess("SUCCESS", result);
+    }
+     */
+
+    @Override
+    public ResponseDto<List<PostListResponseDto>> getPostsByAuthor(String author) {
+        List<D_Post> posts = postRepository.findByAuthorOrderByIdDesc(author);
+        List<PostListResponseDto> result = posts.stream()
+                .map(PostListResponseDto::from)
+                .toList();
+        return ResponseDto.setSuccess("SUCCESS", result);
+    }
+
+
+    // 특정 제목 키워드 게시물 조회
+    /*
+    @Override
+    public ResponseDto<List<PostListResponseDto>> getPostByKeyword(String keyword) {
+        List<D_Post> posts = postRepository.findByKeyword(keyword);
+        List<PostListResponseDto> result = posts.stream()
+                .map(PostListResponseDto::from)
+                .map(dto -> dto.summarize(5))
+                .toList();
+        return ResponseDto.setSuccess("SUCCESS", result);
+    }
+     */
+    @Override
+    public ResponseDto<List<PostListResponseDto>> searchPostsByTitle(String keyword) {
+        List<D_Post> posts = postRepository.findByTitleContainingIgnoreCaseOrderByIdDesc(keyword);
+        List<PostListResponseDto> result = posts.stream()
+                .map(PostListResponseDto::from)
+                .toList();
+        return ResponseDto.setSuccess("SUCCESS", result);
+    }
+
+    //댓글이 가장 많은 상위 5개
+    @Override
+    public ResponseDto<List<PostWithCommentCountResponseDto>> getTop5PostsByComments() {
+        var rows = postRepository.findTopPostsByCommentCount_Native(5);
+        // var: 지역 변수 타입 추로(Java 10+)
+        // 장점 - 반환 타입의 길이가 길경우 간결한 작성
+        // 단점 - 타입을 숨기기 때문에  가독성 저하
+        List<PostWithCommentCountResponseDto> result = rows.stream() // 실무형
+                .map(PostWithCommentCountResponseDto::from).toList();
+        return ResponseDto.setSuccess("SUCCESS", result);
+    }
+
+
+    // === 내부 유틸 메서드 ===
+    private Long requirePositiveId(Long id) {
+        if (id == null || id <= 0) throw new IllegalArgumentException("id는 반드시 양수여야 합니다.");
+        return id;
+    }
+
+    private String requiredNonBlank(String s, String fieldName) {
+        if (!StringUtils.hasText(s)) throw new IllegalArgumentException(fieldName + "은 반드시 비워질 수 없습니다.");
+        //StringUtils.hasText(s)
+        // : Spring Framework 에서 제공하는 메서드
+        // - 문자열이 "의미 있는 글자"를 가지고 있는지를 확인
+
+        //hasText
+        // : null 이면 false
+        // - s의 길이가 0이면 false
+        // - s가 공백 문자만 있으면 false
+        // >> 그 외에 실제 텍스트가 있으면 true 반환
+        return s;
     }
 }

@@ -17,9 +17,11 @@ import java.util.List;
 // : 외부에서 무분별하게 생서하지 못하도록 접근 수준을 PROTECTED로 제한
 @AllArgsConstructor
 @ToString(exclude = "comments")
+@Builder
 //exclude = "comments"
 // : 해당 사ㅗㄱ성값의 필드를 제외하고 ToString 메ㅐ서드 내에서 필드값 출력
 public class D_Post {
+
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // 게시글 고유 id
 

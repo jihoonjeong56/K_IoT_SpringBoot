@@ -23,7 +23,7 @@ public record PostListResponseDto(
         );
     }
 
-    public PostListResponseDto summarize(int maxLen) {
+    public PostListResponseDto summarize(int maxLen) { // 내용이 많을 경우 maxLen 만큼 축약  +  ...
         String summarized = content == null ? null :
                 (content.length() <= maxLen ? content : content.substring(0, maxLen) + "...");
 

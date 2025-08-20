@@ -5,9 +5,11 @@ import com.example.k5_iot_springboot.dto.D_Post.request.PostCreateRequestDto;
 import com.example.k5_iot_springboot.dto.D_Post.request.PostUpdateRequestDto;
 import com.example.k5_iot_springboot.dto.D_Post.response.PostDetailResponseDto;
 import com.example.k5_iot_springboot.dto.D_Post.response.PostListResponseDto;
+import com.example.k5_iot_springboot.dto.D_Post.response.PostWithCommentCountResponseDto;
 import com.example.k5_iot_springboot.dto.ResponseDto;
 import com.example.k5_iot_springboot.service.D_PostService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -70,6 +72,41 @@ public class D_PostController {
     @DeleteMapping(ApiMappingPattern.Posts.ONLY_ID)
     public ResponseEntity<ResponseDto<Void>> deletePost(@PathVariable Long postId){
         ResponseDto<Void> response = postService.deletePost(postId);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    // =====================================================================//
+    // 6) 특정 작성자의 모든 게시글 조회
+    //@GetMapping("/author/{author}")
+    @GetMapping(ApiMappingPattern.Posts.BY_AUTHOR)
+    public ResponseEntity<ResponseDto<List<PostListResponseDto>>> getPostByAuthor(
+            @PathVariable @NotBlank(message = "작성자(author)는 비어 있을수 없습니다.") String author
+    ){
+        ResponseDto<List<PostListResponseDto>> response = postService.getPostsByAuthor(author);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+    // 7) 특정 키워드로 제목 검색
+    /*
+    @GetMapping(ApiMappingPattern.Posts.ONLY_KEYWORD)
+    public ResponseEntity<ResponseDto<List<PostListResponseDto>>> getPostByKeyword(
+            @PathVariable String keyword
+    ){
+        ResponseDto<List<PostListResponseDto>> response = postService.getPostByKeyword(keyword);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+     */
+    @GetMapping(ApiMappingPattern.Posts.SEARCH_BY_TITLE) // api/v1/posts/search?keyword=
+    public ResponseEntity<ResponseDto<List<PostListResponseDto>>> searchPostsByTitle(
+            @RequestParam("keyword") @NotBlank(message = "검색 키워드는 비워질 수 없습니다.") String keyword
+    ){
+        ResponseDto<List<PostListResponseDto>> response = postService.searchPostsByTitle(keyword);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    // 8) 댓글이 가장 많은 상위 5개의 게시글 조회
+    @GetMapping(ApiMappingPattern.Posts.TOP_BY_COMMENTS)
+    public ResponseEntity<ResponseDto<List<PostWithCommentCountResponseDto>>> getTop5PostsByComments(){
+        ResponseDto<List<PostWithCommentCountResponseDto>> response = postService.getTop5PostsByComments();
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
