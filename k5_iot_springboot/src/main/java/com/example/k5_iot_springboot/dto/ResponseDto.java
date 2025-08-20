@@ -14,7 +14,7 @@ public class ResponseDto<T> {
     private boolean success;
     /*처리결과에 대한 설명 메시지*/
     private String message;
-    /* 실제 응닫ㅂ 데이터 (제네릭 타입) */
+    /* 실제 응답 데이터 (제네릭 타입) */
     private T data;
 
     // private final Integer status; // HTTP 상태코드 정수값 (200,400,403 등)

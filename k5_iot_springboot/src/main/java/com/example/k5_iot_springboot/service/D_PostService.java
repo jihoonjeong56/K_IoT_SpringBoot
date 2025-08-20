@@ -8,6 +8,7 @@ import com.example.k5_iot_springboot.dto.D_Post.response.PostWithCommentCountRes
 import com.example.k5_iot_springboot.dto.ResponseDto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PositiveOrZero;
 
 import java.util.List;
 
@@ -29,4 +30,8 @@ public interface D_PostService {
     ResponseDto<List<PostListResponseDto>> searchPostsByTitle(@NotBlank(message = "검색 키워드는 비워질 수 없습니다.") String keyword);
 
     ResponseDto<List<PostWithCommentCountResponseDto>> getTop5PostsByComments();
+
+    ResponseDto<List<PostListResponseDto>> searchPostsByCommentKeyword(@NotBlank(message = "검색 키워드는 비워질 수 없습니다.") String keyword);
+
+    ResponseDto<List<PostWithCommentCountResponseDto>> getAuthorPostsWithMinComments(@NotBlank(message = "작성자는 비워질 수 없습니다.") String author, @PositiveOrZero(message = "minCount는 0이상이어야 합니다.") int minCount);
 }

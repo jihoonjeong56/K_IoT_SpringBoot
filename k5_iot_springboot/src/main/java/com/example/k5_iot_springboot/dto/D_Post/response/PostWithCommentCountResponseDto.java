@@ -12,6 +12,9 @@ public record PostWithCommentCountResponseDto(
         String title,
         String author,
         Long commentCount // 댓글 개수
+
+
+
 ) {
     public static PostWithCommentCountResponseDto from(D_Post post, long commentCount) {
         if (post == null) return null;
@@ -20,6 +23,7 @@ public record PostWithCommentCountResponseDto(
                 post.getTitle(),
                 post.getAuthor(),
                 commentCount
+
         );
     }
     public static PostWithCommentCountResponseDto from(D_PostRepository.PostWithCommentCountProjection p){
@@ -27,4 +31,6 @@ public record PostWithCommentCountResponseDto(
                 p.getPostId(), p.getTitle(), p.getAuthor(), p.getCommentCount()
         );
     }
+
+
 }

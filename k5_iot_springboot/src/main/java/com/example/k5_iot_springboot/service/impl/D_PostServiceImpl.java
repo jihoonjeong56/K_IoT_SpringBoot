@@ -141,6 +141,37 @@ public class D_PostServiceImpl implements D_PostService {
         return ResponseDto.setSuccess("SUCCESS", result);
     }
 
+    // 9) 특정 키워드를 포함하는 "댓글"이 달린 게시글 조회
+    @Override
+    public ResponseDto<List<PostListResponseDto>> searchPostsByCommentKeyword(String keyword) {
+        //1) 입력값 정제/검증
+        String clean = (keyword == null) ? "" : keyword.trim();
+        if (clean.isEmpty()) {
+            throw new IllegalArgumentException("검색키워드는 비워질 수 없습니다");
+
+        }
+        if (clean.length() >= 100) {
+            return ResponseDto.setFailed("검색키워드는 100자 이하여야 함니다.");
+        }
+        var rows = postRepository.findByCommentKeyword(clean);
+
+        List<PostListResponseDto> result = rows.stream()
+                .map(PostListResponseDto::from)
+                .toList();
+        return ResponseDto.setSuccess("SUCCESS", result);
+    }
+
+    // 10) 특정 작성자의 게시글 중, 댓글 수가 minCount 이상인 게시글 조회
+    @Override
+    public ResponseDto<List<PostWithCommentCountResponseDto>> getAuthorPostsWithMinComments(String author, int minCount) {
+        var rows = postRepository.findAuthorPostsWithMinCount(author, minCount);
+        List<PostWithCommentCountResponseDto> result1 = rows.stream()
+                .map(row->new PostWithCommentCountResponseDto(
+                        row.id(), row.title(), row.author(), row.commentCount()
+                )).toList();
+        return ResponseDto.setSuccess("SUCCESS",result1);
+    }
+
 
     // === 내부 유틸 메서드 ===
     private Long requirePositiveId(Long id) {

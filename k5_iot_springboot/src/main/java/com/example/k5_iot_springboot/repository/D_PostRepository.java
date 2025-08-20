@@ -1,5 +1,7 @@
 package com.example.k5_iot_springboot.repository;
 
+import com.example.k5_iot_springboot.dto.D_Post.response.PostListResponseDto;
+import com.example.k5_iot_springboot.dto.D_Post.response.PostWithCommentCountResponseDto;
 import com.example.k5_iot_springboot.entity.D_Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.NativeQuery;
@@ -178,6 +180,7 @@ public interface D_PostRepository extends JpaRepository<D_Post, Long> {
         String getTitle(); // post.title
         String getAuthor(); // post.author
         Long getCommentCount(); // count(c_id
+
     }
     @Query(value = """
     SELECT 
@@ -193,8 +196,56 @@ public interface D_PostRepository extends JpaRepository<D_Post, Long> {
     LIMIT :limit
 """, nativeQuery = true)
     List<PostWithCommentCountProjection> findTopPostsByCommentCount_Native(@Param("limit")int limit);
-}
 
+    // 9) 특정 키워드를 포함하는 "댓글"이 달린 게시글 조회
+    public interface PostListProjection{
+        Long getId();
+        String getTitle();
+        String getContent();
+        String getAuthor();
+    }
+    @Query(value = """
+    SELECT
+            p.id as Id, p.title as title,p.content as content, p.author as author
+        FROM
+            posts p
+        LEFT JOIN
+                comments c
+        ON
+            c.post_id = p.id
+        WHERE
+            c.content LIKE CONCAT('%', :keyword, '%')
+        GROUP BY
+            p.id, p.title, p.author
+        ORDER BY
+            p.id DESC
+""", nativeQuery = true)
+    List<PostListProjection> findByCommentKeyword(@Param("keyword")String keyword);
+
+
+    // 10) 특정 작성자의 게시글 중, 댓글 수가 minCount 이상인 게시글 조회
+    @Query(value = """
+    SELECT p.id as id, p.title as title, p.author as author, count(c.id) as minCount
+    FROM
+        posts p
+        LEFT JOIN comments c
+    ON 
+        c.post_id = p.id    
+    WHERE 
+        p.author LIKE CONCAT('%', :author, '%')
+    GROUP BY 
+        p.id, p.title, p.author
+    HAVING 
+        count(c.id) >= :minCount
+    ORDER BY 
+        minCount ASC , p.id ASC 
+   
+""", nativeQuery = true)
+    List<PostWithCommentCountResponseDto> findAuthorPostsWithMinCount(
+            @Param("author") String author,
+            @Param("minCount") int minCount
+    );
+}
 
 
 

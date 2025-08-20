@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
     // 공통응답 생성 유틸
     public ResponseEntity<ResponseDto<Object>> fail(
             ErrorCode code, String reason, List<FieldErrorItem> errors
-            // : 실패 응답을 한 곳에서 ㅊ조림
+            // : 실패 응답을 한 곳에서 조림
     ) {
         // 1) reason 값 설정: 비워질 경우 ErrorCode의 기본 메시지 값 사용
         String finalReason = (reason != null && !reason.isBlank()) ? reason : code.defaultMessage;

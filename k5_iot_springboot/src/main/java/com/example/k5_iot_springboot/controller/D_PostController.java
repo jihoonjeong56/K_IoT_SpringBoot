@@ -10,6 +10,7 @@ import com.example.k5_iot_springboot.dto.ResponseDto;
 import com.example.k5_iot_springboot.service.D_PostService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -107,6 +108,31 @@ public class D_PostController {
     @GetMapping(ApiMappingPattern.Posts.TOP_BY_COMMENTS)
     public ResponseEntity<ResponseDto<List<PostWithCommentCountResponseDto>>> getTop5PostsByComments(){
         ResponseDto<List<PostWithCommentCountResponseDto>> response = postService.getTop5PostsByComments();
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    // 9) 특정 키워드를 포함하는 "댓글"이 달린 게시글 조회
+    // 요청값 : 특정 키워드 (검색값) - String
+    //      >> @RequestParam
+    // 응답값 : 해당 키워드가 포함된 게시글들 - List<PostListResponseDto>
+    @GetMapping(ApiMappingPattern.Posts.SEARCH_BY_COMMENT)
+    //ResponseEntity(body) >> ResponseDto(data) >> List<PostListResponseDto>
+    public ResponseEntity<ResponseDto<List<PostListResponseDto>>> searchPostsByCommentKeyword(
+            @RequestParam("keyword") @NotBlank(message = "검색 키워드는 비워질 수 없습니다.") String keyword
+    ){
+        ResponseDto<List<PostListResponseDto>> response = postService.searchPostsByCommentKeyword(keyword);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    // 10) 특정 작성자의 게시글 중, 댓글 수가 minCount 이상인 게시글 조회
+    @GetMapping("/author/{author}/min-commnets")
+    public ResponseEntity<ResponseDto<List<PostWithCommentCountResponseDto>>> getAuthorPostsWithMinComments(
+            @PathVariable("author") @NotBlank(message = "작성자는 비워질 수 없습니다.") String author,
+            @RequestParam(name = "minCount", defaultValue = "1")
+            @PositiveOrZero(message = "minCount는 0이상이어야 합니다.") int minCount
+    ){
+        ResponseDto<List<PostWithCommentCountResponseDto>> response
+                = postService.getAuthorPostsWithMinComments(author, minCount);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 

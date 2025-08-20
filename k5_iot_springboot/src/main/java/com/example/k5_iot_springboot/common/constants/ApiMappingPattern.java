@@ -30,6 +30,7 @@ public class ApiMappingPattern {
         //public static final String ONLY_KEYWORD = "/keyword/{keyword}";
         public static final String SEARCH_BY_TITLE = "/search";
         public static final String TOP_BY_COMMENTS = "/top-comments";
+        public static final String SEARCH_BY_COMMENT = "/search-comment";
 
     }
     // == 3. 댓글(D_comment)
@@ -50,8 +51,8 @@ public class ApiMappingPattern {
         private Comments(){}
         public static final String ROOT = Posts.BY_ID + "/comments";
         public static final String ID_ONLY = "/{commentId}";
-
         public static final String BY_ID = ROOT + "/{commentId}";
+
     }
 
 }
