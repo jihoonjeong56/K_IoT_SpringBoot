@@ -1,20 +1,20 @@
-2025-08-20T14:46:49.962+09:00  INFO 16256 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Starting K5IotSpringbootApplication using Java 17.0.12 with PID 16256 (C:\_정지훈\k5_iot_springboot\build\classes\java\main started by user in C:\_정지훈\k5_iot_springboot)
-2025-08-20T14:46:49.964+09:00  INFO 16256 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : No active profile set, falling back to 1 default profile: "default"
-2025-08-20T14:46:50.472+09:00  INFO 16256 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-20T14:46:50.527+09:00  INFO 16256 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 5 JPA repository interfaces.
-2025-08-20T14:46:50.813+09:00  INFO 16256 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-08-20T14:46:50.825+09:00  INFO 16256 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-08-20T14:46:50.826+09:00  INFO 16256 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
-2025-08-20T14:46:50.865+09:00  INFO 16256 --- [k5_iot_springboot] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-08-20T14:46:50.866+09:00  INFO 16256 --- [k5_iot_springboot] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 872 ms
-2025-08-20T14:46:50.982+09:00  INFO 16256 --- [k5_iot_springboot] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-20T14:46:51.037+09:00  INFO 16256 --- [k5_iot_springboot] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
-2025-08-20T14:46:51.067+09:00  INFO 16256 --- [k5_iot_springboot] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-20T14:46:51.298+09:00  INFO 16256 --- [k5_iot_springboot] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-20T14:46:51.322+09:00  INFO 16256 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-08-20T14:46:51.587+09:00  INFO 16256 --- [k5_iot_springboot] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1fa9692b
-2025-08-20T14:46:51.590+09:00  INFO 16256 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-08-20T14:46:51.650+09:00  INFO 16256 --- [k5_iot_springboot] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-08-21T11:27:43.828+09:00  INFO 6524 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Starting K5IotSpringbootApplication using Java 17.0.12 with PID 6524 (C:\_정지훈\k5_iot_springboot\build\classes\java\main started by user in C:\_정지훈\k5_iot_springboot)
+2025-08-21T11:27:43.832+09:00  INFO 6524 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-08-21T11:27:44.386+09:00  INFO 6524 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-21T11:27:44.449+09:00  INFO 6524 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 6 JPA repository interfaces.
+2025-08-21T11:27:44.936+09:00  INFO 6524 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-21T11:27:44.947+09:00  INFO 6524 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-21T11:27:44.947+09:00  INFO 6524 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-21T11:27:45.043+09:00  INFO 6524 --- [k5_iot_springboot] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-21T11:27:45.043+09:00  INFO 6524 --- [k5_iot_springboot] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1181 ms
+2025-08-21T11:27:45.181+09:00  INFO 6524 --- [k5_iot_springboot] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-21T11:27:45.235+09:00  INFO 6524 --- [k5_iot_springboot] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-21T11:27:45.269+09:00  INFO 6524 --- [k5_iot_springboot] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-21T11:27:45.517+09:00  INFO 6524 --- [k5_iot_springboot] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-21T11:27:45.541+09:00  INFO 6524 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-21T11:27:45.751+09:00  INFO 6524 --- [k5_iot_springboot] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@69de72ec
+2025-08-21T11:27:45.753+09:00  INFO 6524 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-21T11:27:45.833+09:00  INFO 6524 --- [k5_iot_springboot] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0.43
@@ -22,244 +22,52 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-08-20T14:46:52.343+09:00  INFO 16256 --- [k5_iot_springboot] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-20T14:46:52.374+09:00  INFO 16256 --- [k5_iot_springboot] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-20T14:46:52.643+09:00  INFO 16256 --- [k5_iot_springboot] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-08-20T14:46:53.174+09:00  WARN 16256 --- [k5_iot_springboot] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-08-20T14:46:53.420+09:00  INFO 16256 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-08-20T14:46:53.426+09:00  INFO 16256 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Started K5IotSpringbootApplication in 3.787 seconds (process running for 4.198)
-2025-08-20T14:49:10.717+09:00  INFO 16256 --- [k5_iot_springboot] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-08-20T14:49:10.717+09:00  INFO 16256 --- [k5_iot_springboot] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-08-20T14:49:10.718+09:00  INFO 16256 --- [k5_iot_springboot] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-20T14:50:04.515+09:00  INFO 16256 --- [k5_iot_springboot] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-08-20T14:50:04.564+09:00  INFO 16256 --- [k5_iot_springboot] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-08-20T14:50:04.567+09:00  INFO 16256 --- [k5_iot_springboot] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-20T14:50:04.568+09:00  INFO 16256 --- [k5_iot_springboot] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-08-20T14:50:04.572+09:00  INFO 16256 --- [k5_iot_springboot] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-08-20T14:50:08.132+09:00  INFO 12572 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Starting K5IotSpringbootApplication using Java 17.0.12 with PID 12572 (C:\_정지훈\k5_iot_springboot\build\classes\java\main started by user in C:\_정지훈\k5_iot_springboot)
-2025-08-20T14:50:08.133+09:00  INFO 12572 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : No active profile set, falling back to 1 default profile: "default"
-2025-08-20T14:50:08.537+09:00  INFO 12572 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-20T14:50:08.590+09:00  INFO 12572 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 5 JPA repository interfaces.
-2025-08-20T14:50:08.847+09:00  INFO 12572 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-08-20T14:50:08.854+09:00  INFO 12572 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-08-20T14:50:08.854+09:00  INFO 12572 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
-2025-08-20T14:50:08.883+09:00  INFO 12572 --- [k5_iot_springboot] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-08-20T14:50:08.883+09:00  INFO 12572 --- [k5_iot_springboot] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 726 ms
-2025-08-20T14:50:08.982+09:00  INFO 12572 --- [k5_iot_springboot] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-20T14:50:09.016+09:00  INFO 12572 --- [k5_iot_springboot] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
-2025-08-20T14:50:09.037+09:00  INFO 12572 --- [k5_iot_springboot] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-20T14:50:09.232+09:00  INFO 12572 --- [k5_iot_springboot] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-20T14:50:09.251+09:00  INFO 12572 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-08-20T14:50:09.432+09:00  INFO 12572 --- [k5_iot_springboot] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5432dca2
-2025-08-20T14:50:09.433+09:00  INFO 12572 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-08-20T14:50:09.488+09:00  INFO 12572 --- [k5_iot_springboot] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 8.0.43
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-08-20T14:50:10.110+09:00  INFO 12572 --- [k5_iot_springboot] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-20T14:50:10.139+09:00  INFO 12572 --- [k5_iot_springboot] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-20T14:50:10.391+09:00  INFO 12572 --- [k5_iot_springboot] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-08-20T14:50:10.876+09:00  WARN 12572 --- [k5_iot_springboot] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-08-20T14:50:11.108+09:00  INFO 12572 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-08-20T14:50:11.113+09:00  INFO 12572 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Started K5IotSpringbootApplication in 3.265 seconds (process running for 3.747)
-2025-08-20T14:50:13.938+09:00  INFO 12572 --- [k5_iot_springboot] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-08-20T14:50:13.938+09:00  INFO 12572 --- [k5_iot_springboot] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-08-20T14:50:13.939+09:00  INFO 12572 --- [k5_iot_springboot] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-08-20T14:50:14.043+09:00  WARN 12572 --- [k5_iot_springboot] [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1064, SQLState: 42000
-2025-08-20T14:50:14.043+09:00 ERROR 12572 --- [k5_iot_springboot] [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 15
-2025-08-20T14:50:14.049+09:00 ERROR 12572 --- [k5_iot_springboot] [http-nio-8080-exec-1] c.e.k.handler.GlobalExceptionHandler     : Iternal error
+2025-08-21T11:27:46.561+09:00  INFO 6524 --- [k5_iot_springboot] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-21T11:27:46.595+09:00  INFO 6524 --- [k5_iot_springboot] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T11:27:46.847+09:00  INFO 6524 --- [k5_iot_springboot] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-21T11:27:47.416+09:00  WARN 6524 --- [k5_iot_springboot] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-21T11:27:47.520+09:00  WARN 6524 --- [k5_iot_springboot] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invalid mapping on handler class [com.example.k5_iot_springboot.controller.F_BoardController]: public org.springframework.http.ResponseEntity com.example.k5_iot_springboot.controller.F_BoardController.updateBoard(java.lang.Long,com.example.k5_iot_springboot.dto.F_Board.request.BoardRequestDto$UpdateRequest)
+2025-08-21T11:27:47.520+09:00  INFO 6524 --- [k5_iot_springboot] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T11:27:47.522+09:00  INFO 6524 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-21T11:27:47.526+09:00  INFO 6524 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-21T11:27:47.527+09:00  INFO 6524 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-08-21T11:27:47.534+09:00  INFO 6524 --- [k5_iot_springboot] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
 
-org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [    SELECT
-        p.id as Id, p.title as title, p.content as content, p.author as author
-    FROM
-        posts p
-    LEFT JOIN
-            comments c
-    ON
-        c.post_id = p.id
-    WHERE EXISTS(SELECT 1
-                 FROM commnets c
-                 WHERE
-                     c.post_id = p.id
-                 AND c.content LIKE CONCAT('%', ?, '%')
-    ORDER BY
-        p.id DESC
-] [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 15] [n/a]; SQL [n/a]
-	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:281) ~[spring-orm-6.2.9.jar:6.2.9]
-	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:256) ~[spring-orm-6.2.9.jar:6.2.9]
-	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241) ~[spring-orm-6.2.9.jar:6.2.9]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:560) ~[spring-orm-6.2.9.jar:6.2.9]
-	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61) ~[spring-tx-6.2.9.jar:6.2.9]
-	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:343) ~[spring-tx-6.2.9.jar:6.2.9]
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:160) ~[spring-tx-6.2.9.jar:6.2.9]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.9.jar:6.2.9]
-	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:136) ~[spring-data-jpa-3.5.2.jar:3.5.2]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.9.jar:6.2.9]
-	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.9.jar:6.2.9]
-	at jdk.proxy2/jdk.proxy2.$Proxy147.findByCommentKeyword(Unknown Source) ~[na:na]
-	at com.example.k5_iot_springboot.service.impl.D_PostServiceImpl.searchPostsByCommentKeyword(D_PostServiceImpl.java:156) ~[main/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360) ~[spring-aop-6.2.9.jar:6.2.9]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.9.jar:6.2.9]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.9.jar:6.2.9]
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.9.jar:6.2.9]
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.9.jar:6.2.9]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.9.jar:6.2.9]
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.9.jar:6.2.9]
-	at com.example.k5_iot_springboot.service.impl.D_PostServiceImpl$$SpringCGLIB$$0.searchPostsByCommentKeyword(<generated>) ~[main/:na]
-	at com.example.k5_iot_springboot.controller.D_PostController.searchPostsByCommentKeyword(D_PostController.java:122) ~[main/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360) ~[spring-aop-6.2.9.jar:6.2.9]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.9.jar:6.2.9]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.9.jar:6.2.9]
-	at org.springframework.validation.beanvalidation.MethodValidationInterceptor.invoke(MethodValidationInterceptor.java:174) ~[spring-context-6.2.9.jar:6.2.9]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.9.jar:6.2.9]
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.9.jar:6.2.9]
-	at com.example.k5_iot_springboot.controller.D_PostController$$SpringCGLIB$$0.searchPostsByCommentKeyword(<generated>) ~[main/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.9.jar:6.2.9]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.9.jar:6.2.9]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.9.jar:6.2.9]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991) ~[spring-webmvc-6.2.9.jar:6.2.9]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896) ~[spring-webmvc-6.2.9.jar:6.2.9]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.9.jar:6.2.9]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.9.jar:6.2.9]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.9.jar:6.2.9]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.9.jar:6.2.9]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.9.jar:6.2.9]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.43.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.9.jar:6.2.9]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.43.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.9.jar:6.2.9]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.9.jar:6.2.9]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.9.jar:6.2.9]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.9.jar:6.2.9]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.9.jar:6.2.9]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.9.jar:6.2.9]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.43.jar:10.1.43]
-	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
-Caused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [    SELECT
-        p.id as Id, p.title as title, p.content as content, p.author as author
-    FROM
-        posts p
-    LEFT JOIN
-            comments c
-    ON
-        c.post_id = p.id
-    WHERE EXISTS(SELECT 1
-                 FROM commnets c
-                 WHERE
-                     c.post_id = p.id
-                 AND c.content LIKE CONCAT('%', ?, '%')
-    ORDER BY
-        p.id DESC
-] [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 15] [n/a]
-	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:66) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:269) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:172) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getMetaData(AbstractResultSetAccess.java:36) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getColumnCount(AbstractResultSetAccess.java:52) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.query.results.ResultSetMappingImpl.resolve(ResultSetMappingImpl.java:194) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValuesSource(JdbcSelectExecutorStandardImpl.java:340) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:137) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:102) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.executeQuery(JdbcSelectExecutor.java:91) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:165) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:142) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:132) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.query.sql.internal.NativeSelectQueryPlanImpl.performList(NativeSelectQueryPlanImpl.java:135) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.query.sql.internal.NativeQueryImpl.doList(NativeQueryImpl.java:697) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:143) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.hibernate.query.Query.getResultList(Query.java:120) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	at org.springframework.data.jpa.repository.query.JpaQueryExecution$CollectionExecution.doExecute(JpaQueryExecution.java:130) ~[spring-data-jpa-3.5.2.jar:3.5.2]
-	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:93) ~[spring-data-jpa-3.5.2.jar:3.5.2]
-	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:160) ~[spring-data-jpa-3.5.2.jar:3.5.2]
-	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:148) ~[spring-data-jpa-3.5.2.jar:3.5.2]
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.5.2.jar:3.5.2]
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.5.2.jar:3.5.2]
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:170) ~[spring-data-commons-3.5.2.jar:3.5.2]
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:149) ~[spring-data-commons-3.5.2.jar:3.5.2]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.9.jar:6.2.9]
-	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69) ~[spring-data-commons-3.5.2.jar:3.5.2]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.9.jar:6.2.9]
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.9.jar:6.2.9]
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.9.jar:6.2.9]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.9.jar:6.2.9]
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.2.9.jar:6.2.9]
-	... 80 common frames omitted
-Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 15
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-j-9.3.0.jar:9.3.0]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.3.0.jar:9.3.0]
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:990) ~[mysql-connector-j-9.3.0.jar:9.3.0]
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1058) ~[mysql-connector-j-9.3.0.jar:9.3.0]
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-6.3.1.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-6.3.1.jar:na]
-	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:251) ~[hibernate-core-6.6.22.Final.jar:6.6.22.Final]
-	... 110 common frames omitted
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-08-21T11:27:47.546+09:00 ERROR 6524 --- [k5_iot_springboot] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
 
-2025-08-20T14:59:33.207+09:00  INFO 12572 --- [k5_iot_springboot] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-08-20T14:59:33.258+09:00  INFO 12572 --- [k5_iot_springboot] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-08-20T14:59:33.260+09:00  INFO 12572 --- [k5_iot_springboot] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-20T14:59:33.261+09:00  INFO 12572 --- [k5_iot_springboot] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-08-20T14:59:33.265+09:00  INFO 12572 --- [k5_iot_springboot] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-08-20T14:59:35.921+09:00  INFO 1476 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Starting K5IotSpringbootApplication using Java 17.0.12 with PID 1476 (C:\_정지훈\k5_iot_springboot\build\classes\java\main started by user in C:\_정지훈\k5_iot_springboot)
-2025-08-20T14:59:35.922+09:00  INFO 1476 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : No active profile set, falling back to 1 default profile: "default"
-2025-08-20T14:59:36.338+09:00  INFO 1476 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-20T14:59:36.393+09:00  INFO 1476 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 5 JPA repository interfaces.
-2025-08-20T14:59:36.658+09:00  INFO 1476 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-08-20T14:59:36.666+09:00  INFO 1476 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-08-20T14:59:36.666+09:00  INFO 1476 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
-2025-08-20T14:59:36.696+09:00  INFO 1476 --- [k5_iot_springboot] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-08-20T14:59:36.697+09:00  INFO 1476 --- [k5_iot_springboot] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 750 ms
-2025-08-20T14:59:36.796+09:00  INFO 1476 --- [k5_iot_springboot] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-20T14:59:36.827+09:00  INFO 1476 --- [k5_iot_springboot] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
-2025-08-20T14:59:36.852+09:00  INFO 1476 --- [k5_iot_springboot] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-20T14:59:37.043+09:00  INFO 1476 --- [k5_iot_springboot] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-20T14:59:37.064+09:00  INFO 1476 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-08-20T14:59:37.264+09:00  INFO 1476 --- [k5_iot_springboot] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3a70575
-2025-08-20T14:59:37.265+09:00  INFO 1476 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-08-20T14:59:37.318+09:00  INFO 1476 --- [k5_iot_springboot] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Invalid mapping pattern detected:
+/{boardId)
+         ^
+Char ')' is not allowed in a captured variable name
+
+Action:
+
+Fix this pattern in your application or switch to the legacy parser implementation with 'spring.mvc.pathmatch.matching-strategy=ant_path_matcher'.
+
+2025-08-21T11:27:59.357+09:00  INFO 14032 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Starting K5IotSpringbootApplication using Java 17.0.12 with PID 14032 (C:\_정지훈\k5_iot_springboot\build\classes\java\main started by user in C:\_정지훈\k5_iot_springboot)
+2025-08-21T11:27:59.359+09:00  INFO 14032 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-08-21T11:27:59.791+09:00  INFO 14032 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-21T11:27:59.848+09:00  INFO 14032 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 6 JPA repository interfaces.
+2025-08-21T11:28:00.218+09:00  INFO 14032 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-21T11:28:00.226+09:00  INFO 14032 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-21T11:28:00.226+09:00  INFO 14032 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-21T11:28:00.258+09:00  INFO 14032 --- [k5_iot_springboot] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-21T11:28:00.259+09:00  INFO 14032 --- [k5_iot_springboot] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 876 ms
+2025-08-21T11:28:00.361+09:00  INFO 14032 --- [k5_iot_springboot] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-21T11:28:00.393+09:00  INFO 14032 --- [k5_iot_springboot] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-21T11:28:00.424+09:00  INFO 14032 --- [k5_iot_springboot] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-21T11:28:00.607+09:00  INFO 14032 --- [k5_iot_springboot] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-21T11:28:00.627+09:00  INFO 14032 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-21T11:28:00.814+09:00  INFO 14032 --- [k5_iot_springboot] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@54687fd0
+2025-08-21T11:28:00.822+09:00  INFO 14032 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-21T11:28:00.877+09:00  INFO 14032 --- [k5_iot_springboot] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0.43
@@ -267,14 +75,216 @@ Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL synta
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-08-20T14:59:37.951+09:00  INFO 1476 --- [k5_iot_springboot] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-20T14:59:37.980+09:00  INFO 1476 --- [k5_iot_springboot] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-20T14:59:38.225+09:00  INFO 1476 --- [k5_iot_springboot] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-08-20T14:59:38.723+09:00  WARN 1476 --- [k5_iot_springboot] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-08-20T14:59:38.951+09:00  INFO 1476 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-08-20T14:59:38.957+09:00  INFO 1476 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Started K5IotSpringbootApplication in 3.321 seconds (process running for 3.654)
-2025-08-20T15:05:14.032+09:00  INFO 1476 --- [k5_iot_springboot] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-08-20T15:05:14.079+09:00  INFO 1476 --- [k5_iot_springboot] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-08-20T15:05:14.083+09:00  INFO 1476 --- [k5_iot_springboot] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-20T15:05:14.084+09:00  INFO 1476 --- [k5_iot_springboot] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-08-20T15:05:14.087+09:00  INFO 1476 --- [k5_iot_springboot] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-21T11:28:01.522+09:00  INFO 14032 --- [k5_iot_springboot] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-21T11:28:01.551+09:00  INFO 14032 --- [k5_iot_springboot] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T11:28:01.766+09:00  INFO 14032 --- [k5_iot_springboot] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-21T11:28:02.282+09:00  WARN 14032 --- [k5_iot_springboot] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-21T11:28:02.349+09:00  WARN 14032 --- [k5_iot_springboot] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invalid mapping on handler class [com.example.k5_iot_springboot.controller.F_BoardController]: public org.springframework.http.ResponseEntity com.example.k5_iot_springboot.controller.F_BoardController.updateBoard(java.lang.Long,com.example.k5_iot_springboot.dto.F_Board.request.BoardRequestDto$UpdateRequest)
+2025-08-21T11:28:02.350+09:00  INFO 14032 --- [k5_iot_springboot] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T11:28:02.351+09:00  INFO 14032 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-21T11:28:02.356+09:00  INFO 14032 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-21T11:28:02.357+09:00  INFO 14032 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-08-21T11:28:02.365+09:00  INFO 14032 --- [k5_iot_springboot] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-08-21T11:28:02.376+09:00 ERROR 14032 --- [k5_iot_springboot] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Invalid mapping pattern detected:
+/{boardId)
+         ^
+Char ')' is not allowed in a captured variable name
+
+Action:
+
+Fix this pattern in your application or switch to the legacy parser implementation with 'spring.mvc.pathmatch.matching-strategy=ant_path_matcher'.
+
+2025-08-21T11:28:29.005+09:00  INFO 16672 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Starting K5IotSpringbootApplication using Java 17.0.12 with PID 16672 (C:\_정지훈\k5_iot_springboot\build\classes\java\main started by user in C:\_정지훈\k5_iot_springboot)
+2025-08-21T11:28:29.007+09:00  INFO 16672 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-08-21T11:28:29.443+09:00  INFO 16672 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-21T11:28:29.502+09:00  INFO 16672 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 6 JPA repository interfaces.
+2025-08-21T11:28:29.872+09:00  INFO 16672 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-21T11:28:29.880+09:00  INFO 16672 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-21T11:28:29.881+09:00  INFO 16672 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-21T11:28:29.912+09:00  INFO 16672 --- [k5_iot_springboot] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-21T11:28:29.912+09:00  INFO 16672 --- [k5_iot_springboot] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 880 ms
+2025-08-21T11:28:30.011+09:00  INFO 16672 --- [k5_iot_springboot] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-21T11:28:30.043+09:00  INFO 16672 --- [k5_iot_springboot] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-21T11:28:30.065+09:00  INFO 16672 --- [k5_iot_springboot] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-21T11:28:30.263+09:00  INFO 16672 --- [k5_iot_springboot] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-21T11:28:30.282+09:00  INFO 16672 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-21T11:28:30.463+09:00  INFO 16672 --- [k5_iot_springboot] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4e951fb1
+2025-08-21T11:28:30.465+09:00  INFO 16672 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-21T11:28:30.529+09:00  INFO 16672 --- [k5_iot_springboot] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.43
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-21T11:28:31.172+09:00  INFO 16672 --- [k5_iot_springboot] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-21T11:28:31.200+09:00  INFO 16672 --- [k5_iot_springboot] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T11:28:31.426+09:00  INFO 16672 --- [k5_iot_springboot] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-21T11:28:31.935+09:00  WARN 16672 --- [k5_iot_springboot] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-21T11:28:32.204+09:00  INFO 16672 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-21T11:28:32.210+09:00  INFO 16672 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Started K5IotSpringbootApplication in 3.495 seconds (process running for 3.94)
+2025-08-21T11:29:24.920+09:00  INFO 16672 --- [k5_iot_springboot] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-21T11:29:24.920+09:00  INFO 16672 --- [k5_iot_springboot] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-21T11:29:24.922+09:00  INFO 16672 --- [k5_iot_springboot] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-21T11:31:49.801+09:00  INFO 16672 --- [k5_iot_springboot] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-21T11:31:49.834+09:00  INFO 16672 --- [k5_iot_springboot] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-21T11:31:49.838+09:00  INFO 16672 --- [k5_iot_springboot] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T11:31:49.839+09:00  INFO 16672 --- [k5_iot_springboot] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-21T11:31:49.842+09:00  INFO 16672 --- [k5_iot_springboot] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-21T11:31:52.466+09:00  INFO 2072 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Starting K5IotSpringbootApplication using Java 17.0.12 with PID 2072 (C:\_정지훈\k5_iot_springboot\build\classes\java\main started by user in C:\_정지훈\k5_iot_springboot)
+2025-08-21T11:31:52.468+09:00  INFO 2072 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-08-21T11:31:52.903+09:00  INFO 2072 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-21T11:31:52.963+09:00  INFO 2072 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 6 JPA repository interfaces.
+2025-08-21T11:31:53.348+09:00  INFO 2072 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-21T11:31:53.359+09:00  INFO 2072 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-21T11:31:53.360+09:00  INFO 2072 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-21T11:31:53.394+09:00  INFO 2072 --- [k5_iot_springboot] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-21T11:31:53.395+09:00  INFO 2072 --- [k5_iot_springboot] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 903 ms
+2025-08-21T11:31:53.519+09:00  INFO 2072 --- [k5_iot_springboot] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-21T11:31:53.552+09:00  INFO 2072 --- [k5_iot_springboot] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-21T11:31:53.574+09:00  INFO 2072 --- [k5_iot_springboot] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-21T11:31:53.769+09:00  INFO 2072 --- [k5_iot_springboot] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-21T11:31:53.791+09:00  INFO 2072 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-21T11:31:53.978+09:00  INFO 2072 --- [k5_iot_springboot] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@30e2016a
+2025-08-21T11:31:53.979+09:00  INFO 2072 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-21T11:31:54.039+09:00  INFO 2072 --- [k5_iot_springboot] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.43
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-21T11:31:54.687+09:00  INFO 2072 --- [k5_iot_springboot] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-21T11:31:54.715+09:00  INFO 2072 --- [k5_iot_springboot] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T11:31:54.932+09:00  INFO 2072 --- [k5_iot_springboot] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-21T11:31:55.455+09:00  WARN 2072 --- [k5_iot_springboot] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-21T11:31:55.686+09:00  INFO 2072 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-21T11:31:55.692+09:00  INFO 2072 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Started K5IotSpringbootApplication in 3.515 seconds (process running for 3.85)
+2025-08-21T11:31:58.649+09:00  INFO 2072 --- [k5_iot_springboot] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-21T11:31:58.649+09:00  INFO 2072 --- [k5_iot_springboot] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-21T11:31:58.650+09:00  INFO 2072 --- [k5_iot_springboot] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-21T11:37:48.019+09:00  INFO 2072 --- [k5_iot_springboot] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-21T11:37:48.057+09:00  INFO 2072 --- [k5_iot_springboot] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-21T11:37:48.059+09:00  INFO 2072 --- [k5_iot_springboot] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T11:37:48.061+09:00  INFO 2072 --- [k5_iot_springboot] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-21T11:37:48.065+09:00  INFO 2072 --- [k5_iot_springboot] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-21T11:37:50.506+09:00  INFO 16352 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Starting K5IotSpringbootApplication using Java 17.0.12 with PID 16352 (C:\_정지훈\k5_iot_springboot\build\classes\java\main started by user in C:\_정지훈\k5_iot_springboot)
+2025-08-21T11:37:50.509+09:00  INFO 16352 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-08-21T11:37:50.930+09:00  INFO 16352 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-21T11:37:50.987+09:00  INFO 16352 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 6 JPA repository interfaces.
+2025-08-21T11:37:51.348+09:00  INFO 16352 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-21T11:37:51.356+09:00  INFO 16352 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-21T11:37:51.356+09:00  INFO 16352 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-21T11:37:51.386+09:00  INFO 16352 --- [k5_iot_springboot] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-21T11:37:51.386+09:00  INFO 16352 --- [k5_iot_springboot] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 854 ms
+2025-08-21T11:37:51.489+09:00  INFO 16352 --- [k5_iot_springboot] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-21T11:37:51.522+09:00  INFO 16352 --- [k5_iot_springboot] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-21T11:37:51.546+09:00  INFO 16352 --- [k5_iot_springboot] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-21T11:37:51.733+09:00  INFO 16352 --- [k5_iot_springboot] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-21T11:37:51.751+09:00  INFO 16352 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-21T11:37:51.936+09:00  INFO 16352 --- [k5_iot_springboot] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7bbd76b8
+2025-08-21T11:37:51.937+09:00  INFO 16352 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-21T11:37:51.991+09:00  INFO 16352 --- [k5_iot_springboot] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.43
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-21T11:37:52.631+09:00  INFO 16352 --- [k5_iot_springboot] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-21T11:37:52.660+09:00  INFO 16352 --- [k5_iot_springboot] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T11:37:52.887+09:00  INFO 16352 --- [k5_iot_springboot] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-21T11:37:53.394+09:00  WARN 16352 --- [k5_iot_springboot] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-21T11:37:53.618+09:00  INFO 16352 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-21T11:37:53.625+09:00  INFO 16352 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Started K5IotSpringbootApplication in 3.414 seconds (process running for 3.758)
+2025-08-21T11:38:09.032+09:00  INFO 16352 --- [k5_iot_springboot] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-21T11:38:09.033+09:00  INFO 16352 --- [k5_iot_springboot] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-21T11:38:09.034+09:00  INFO 16352 --- [k5_iot_springboot] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-08-21T11:43:11.232+09:00  INFO 16352 --- [k5_iot_springboot] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-21T11:43:11.271+09:00  INFO 16352 --- [k5_iot_springboot] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-21T11:43:11.275+09:00  INFO 16352 --- [k5_iot_springboot] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T11:43:11.276+09:00  INFO 16352 --- [k5_iot_springboot] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-21T11:43:11.281+09:00  INFO 16352 --- [k5_iot_springboot] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-21T11:43:37.694+09:00  INFO 19236 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Starting K5IotSpringbootApplication using Java 17.0.12 with PID 19236 (C:\_정지훈\k5_iot_springboot\build\classes\java\main started by user in C:\_정지훈\k5_iot_springboot)
+2025-08-21T11:43:37.696+09:00  INFO 19236 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-08-21T11:43:38.117+09:00  INFO 19236 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-21T11:43:38.175+09:00  INFO 19236 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 6 JPA repository interfaces.
+2025-08-21T11:43:38.533+09:00  INFO 19236 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-21T11:43:38.542+09:00  INFO 19236 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-21T11:43:38.542+09:00  INFO 19236 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-21T11:43:38.571+09:00  INFO 19236 --- [k5_iot_springboot] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-21T11:43:38.572+09:00  INFO 19236 --- [k5_iot_springboot] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 853 ms
+2025-08-21T11:43:38.672+09:00  INFO 19236 --- [k5_iot_springboot] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-21T11:43:38.704+09:00  INFO 19236 --- [k5_iot_springboot] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-21T11:43:38.724+09:00  INFO 19236 --- [k5_iot_springboot] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-21T11:43:38.922+09:00  INFO 19236 --- [k5_iot_springboot] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-21T11:43:38.941+09:00  INFO 19236 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-21T11:43:39.124+09:00  INFO 19236 --- [k5_iot_springboot] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@37b238da
+2025-08-21T11:43:39.126+09:00  INFO 19236 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-21T11:43:39.189+09:00  INFO 19236 --- [k5_iot_springboot] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.43
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-21T11:43:39.831+09:00  INFO 19236 --- [k5_iot_springboot] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-21T11:43:39.861+09:00  INFO 19236 --- [k5_iot_springboot] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T11:43:40.083+09:00  INFO 19236 --- [k5_iot_springboot] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-21T11:43:40.599+09:00  WARN 19236 --- [k5_iot_springboot] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-21T11:43:40.821+09:00  INFO 19236 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-21T11:43:40.827+09:00  INFO 19236 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Started K5IotSpringbootApplication in 3.424 seconds (process running for 3.748)
+2025-08-21T11:45:18.393+09:00  INFO 19236 --- [k5_iot_springboot] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-21T11:45:18.431+09:00  INFO 19236 --- [k5_iot_springboot] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-21T11:45:18.434+09:00  INFO 19236 --- [k5_iot_springboot] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T11:45:18.435+09:00  INFO 19236 --- [k5_iot_springboot] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-21T11:45:18.441+09:00  INFO 19236 --- [k5_iot_springboot] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-21T11:45:20.912+09:00  INFO 12640 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Starting K5IotSpringbootApplication using Java 17.0.12 with PID 12640 (C:\_정지훈\k5_iot_springboot\build\classes\java\main started by user in C:\_정지훈\k5_iot_springboot)
+2025-08-21T11:45:20.914+09:00  INFO 12640 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-08-21T11:45:21.365+09:00  INFO 12640 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-21T11:45:21.420+09:00  INFO 12640 --- [k5_iot_springboot] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 6 JPA repository interfaces.
+2025-08-21T11:45:21.780+09:00  INFO 12640 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-21T11:45:21.788+09:00  INFO 12640 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-21T11:45:21.788+09:00  INFO 12640 --- [k5_iot_springboot] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-21T11:45:21.817+09:00  INFO 12640 --- [k5_iot_springboot] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-21T11:45:21.818+09:00  INFO 12640 --- [k5_iot_springboot] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 876 ms
+2025-08-21T11:45:21.916+09:00  INFO 12640 --- [k5_iot_springboot] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-21T11:45:21.947+09:00  INFO 12640 --- [k5_iot_springboot] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-21T11:45:21.972+09:00  INFO 12640 --- [k5_iot_springboot] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-21T11:45:22.164+09:00  INFO 12640 --- [k5_iot_springboot] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-21T11:45:22.183+09:00  INFO 12640 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-21T11:45:22.368+09:00  INFO 12640 --- [k5_iot_springboot] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2248d140
+2025-08-21T11:45:22.370+09:00  INFO 12640 --- [k5_iot_springboot] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-21T11:45:22.425+09:00  INFO 12640 --- [k5_iot_springboot] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.43
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-21T11:45:23.083+09:00  INFO 12640 --- [k5_iot_springboot] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-21T11:45:23.112+09:00  INFO 12640 --- [k5_iot_springboot] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T11:45:23.337+09:00  INFO 12640 --- [k5_iot_springboot] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-21T11:45:23.848+09:00  WARN 12640 --- [k5_iot_springboot] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-21T11:45:24.066+09:00  INFO 12640 --- [k5_iot_springboot] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-21T11:45:24.072+09:00  INFO 12640 --- [k5_iot_springboot] [main] c.e.k.K5IotSpringbootApplication         : Started K5IotSpringbootApplication in 3.441 seconds (process running for 3.881)
+2025-08-21T12:19:03.870+09:00  INFO 12640 --- [k5_iot_springboot] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-21T12:19:03.907+09:00  INFO 12640 --- [k5_iot_springboot] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-21T12:19:03.910+09:00  INFO 12640 --- [k5_iot_springboot] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T12:19:03.912+09:00  INFO 12640 --- [k5_iot_springboot] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-21T12:19:03.915+09:00  INFO 12640 --- [k5_iot_springboot] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

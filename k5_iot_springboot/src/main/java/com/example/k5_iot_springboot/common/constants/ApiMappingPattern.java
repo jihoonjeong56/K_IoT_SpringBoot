@@ -45,13 +45,20 @@ public class ApiMappingPattern {
         2) 댓글 수정(PUT) : /api/v1/posts/{postId}/comments/{commentId}
         3) 댓글 삭제(DELETE) : /api/v1/posts/{postId}/comments/{commentId}
 
-
      */
     public static final class Comments{
         private Comments(){}
         public static final String ROOT = Posts.BY_ID + "/comments";
         public static final String ID_ONLY = "/{commentId}";
         public static final String BY_ID = ROOT + "/{commentId}";
+
+    }
+
+    // == 4. 게시글(F_Board) ==
+    public static final class Boards{
+        private Boards(){}
+        public static final String ROOT = BASE + "/boards";
+        public static final String ID_ONLY = "/{boardId}";
 
     }
 
