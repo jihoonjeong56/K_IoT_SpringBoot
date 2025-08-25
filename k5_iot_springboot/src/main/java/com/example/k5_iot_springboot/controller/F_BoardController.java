@@ -39,16 +39,18 @@ public class F_BoardController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
 
     }
-    //2-1 게시글 조회 Offset
+    // 2-1) 게시글 조회 (페이지네이션 OffSet 조회)
     @GetMapping
     public ResponseEntity<ResponseDto<BoardResponseDto.PageResponse>> getBoardsPage(
-            // page @Param: 0부터 시작, 필요시 1부터 시작하는 정책도 가능
+            // page: 0부터 시작, 필요 시 1부터 시작하는 정책도 가능
             @RequestParam(defaultValue = "0") @Min(0) int page,
-            // size @Param : 최대 100 제한(과도한 요청 방지)
+            // size: 최대 100 제한 (과도한 요청 방지)
             @RequestParam(defaultValue = "10") @Min(1) @Max(100) int size,
-            // sort @Param : 여러 개 허용 - EX) sort=createAt, desc & sort = title, asc
+            // sort: 여러 개 허용 - EX) sort=createAt,desc&sort=title,asc
             @RequestParam(required = false) String[] sort
-    ){
+
+
+    ) {
         ResponseDto<BoardResponseDto.PageResponse> response = boardService.getBoardsPage(page, size, sort);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }

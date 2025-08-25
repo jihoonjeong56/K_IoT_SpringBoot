@@ -33,9 +33,11 @@ public class F_BoardServiceImpl implements F_BoardService {
         Sort sort = Sort.by("createdAt").descending(); // 기본정렬: 최신순
         // >> 정렬 파라미터가 존재하지 않거나, 전부화이트리스트에서 무시되는 경우 디폴트 정렬을 사용
         if (sortParams != null && sortParams.length > 0) { // >> 빈 배열이 아닌경우
+
             // 정렬 순서를 보장할 리스트 - 여러 정렬 기준을 저장(순서 보장!)
             List<Sort.Order> orders = new ArrayList<>();
             for (String p : sortParams) {
+
                 if (p == null || p.isBlank()) continue;
                 String[] t = p.split(",");
                 String property = t[0].trim();
@@ -44,12 +46,13 @@ public class F_BoardServiceImpl implements F_BoardService {
                 if (!ALLOWED_SORTS.contains(property)) continue;
                 Sort.Direction dir = Sort.Direction.DESC;
                 // 기본정렬 방향을 DESC
+
                 if (t.length > 1) { // 정렬기준이 존재한다를 의미
                     dir = "asc".equalsIgnoreCase(t[1].trim()) ? Sort.Direction.ASC : Sort.Direction.DESC;
                 }
                 orders.add(new Sort.Order(dir, property));
                 // : 파싱한 정렬 기준 한 건을 Sort.Order 객체로 만들어 목록에 추가
-                // - 여러 건이 싸이면 ORDER BY prop1 dir1, prop2 dir2 ... 순서대로 적용
+                // - 여러 건이 싸이면 ORDER BY prop1 dir1, prop2 dir2 ... 순서대로 적
             }
             if(!orders.isEmpty()) sort = Sort.by(orders); // 비워지지 않은 경우 sort 값 재할당
         }
