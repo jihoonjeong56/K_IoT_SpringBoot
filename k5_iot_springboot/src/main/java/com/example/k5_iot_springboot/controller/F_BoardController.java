@@ -48,8 +48,6 @@ public class F_BoardController {
             @RequestParam(defaultValue = "10") @Min(1) @Max(100) int size,
             // sort: 여러 개 허용 - EX) sort=createAt,desc&sort=title,asc
             @RequestParam(required = false) String[] sort
-
-
     ) {
         ResponseDto<BoardResponseDto.PageResponse> response = boardService.getBoardsPage(page, size, sort);
         return ResponseEntity.status(HttpStatus.OK).body(response);

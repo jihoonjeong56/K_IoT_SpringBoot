@@ -121,6 +121,7 @@ public class WebSecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/v1/boards/**").permitAll()
                         .anyRequest().authenticated() // 나머지는 인증 필요
                 );
+
 //        if(h2consoleEnabled){                                                             //HeadersConfigurer.FrameOptionsConfig::sameOrigin
 //            http.headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()));
 //            http.authorizeHttpRequests(auth -> auth.requestMatchers("/h2-console/**").permitAll());
