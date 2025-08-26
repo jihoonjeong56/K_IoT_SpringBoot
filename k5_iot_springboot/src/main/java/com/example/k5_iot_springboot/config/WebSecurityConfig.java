@@ -65,7 +65,7 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    // Spring이 구성한 것을 노툴
+    // Spring이 구성한 것을 노출
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
@@ -103,12 +103,10 @@ public class WebSecurityConfig {
      *=========== */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        if(h2consoleEnabled){                                                             //HeadersConfigurer.FrameOptionsConfig::sameOrigin
-            http.headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()));
-            http.authorizeHttpRequests(auth -> auth.requestMatchers("/h2-console/**").permitAll());
-            //JWT 인증 필터를 UsernamePasswordAuthenticationFilter 앞에 배치
-            http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-        }
+//        if(h2consoleEnabled){
+//            http.headers(header ->header.frameOptions(frame -> frame.sameOrigin()))
+//                    .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+//        }
         http.csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
@@ -116,6 +114,7 @@ public class WebSecurityConfig {
                 .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
+                        //.requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/api/v1/auth/**").permitAll()
                         //읽기 공개 예시(게시글 목록, 조회 등)
@@ -138,8 +137,6 @@ public class WebSecurityConfig {
                 .filter(s -> !s.isBlank())
                 .toList();
     }
-
-
 
 
 }
