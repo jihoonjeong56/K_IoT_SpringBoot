@@ -12,6 +12,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.naming.AuthenticationException;
 import java.nio.file.AccessDeniedException;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,11 +42,12 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(code.status)
                 .body(ResponseDto.setFailed(finalReason, body));
     }
+
     // == @Valid(@RequestBody) 검증 실패 항목을 표준 형식으로 변환 ==
-    private List<FieldErrorItem> toFieldErrors(MethodArgumentNotValidException e){
+    private List<FieldErrorItem> toFieldErrors(MethodArgumentNotValidException e) {
         List<FieldErrorItem> list = new ArrayList<>(); // 수집용 리스트
         // 필드 단위 검증 실패 항목 순회
-        e.getBindingResult().getFieldErrors().forEach(err->{
+        e.getBindingResult().getFieldErrors().forEach(err -> {
             list.add(new FieldErrorItem(
                     err.getField(),                                               //실패한 필드명
                     Objects.toString(err.getRejectedValue(), "null"), // 거부된 값(널이면  null)
@@ -54,46 +56,59 @@ public class GlobalExceptionHandler {
         });
 
         //글로벌 에러 검증
-        e.getBindingResult().getGlobalErrors().forEach(err->{
+        e.getBindingResult().getGlobalErrors().forEach(err -> {
             // 필드명 대신 오브젝트명 사용
             list.add(new FieldErrorItem(err.getObjectName(), "", err.getDefaultMessage()));
         });
 
         return list;
     }
+
     // == 400 BAD_REQUEST : 잘못된 인자/상태(서비스레벨 방어 예외 등) ===
     @ExceptionHandler({IllegalArgumentException.class, IllegalStateException.class})
-    public ResponseEntity<ResponseDto<Object>> handleBadRequest(Exception e){
+    public ResponseEntity<ResponseDto<Object>> handleBadRequest(Exception e) {
         log.warn("Bad Request: {}", e.getMessage());
         return fail(ErrorCode.BAD_REQUEST, null, null);
     }
+
     // == 400 VALIDATION ERROR : @Valid @RequestBody 검증 실패
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ResponseDto<Object>> handleValidation(MethodArgumentNotValidException e){
+    public ResponseEntity<ResponseDto<Object>> handleValidation(MethodArgumentNotValidException e) {
         log.warn("Validation Error: {}", e.getMessage());
         return fail(ErrorCode.VALIDATION_ERROR, null, toFieldErrors(e));
     }
+
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity<ResponseDto<Object>> handleAuth(AuthenticationException e) {
+        log.warn("UnAuthorized: {}", e.getMessage());
+        return  fail(ErrorCode.UNAUTHORIZED, null, null);
+    }
+
     // == 403 FORBIDDEN ERROR : 접근 거부
     @ExceptionHandler(AccessDeniedException.class)
-    public ResponseEntity<ResponseDto<Object>> handleAccessDenied(AccessDeniedException e){
+    public ResponseEntity<ResponseDto<Object>> handleAccessDenied(AccessDeniedException e) {
         log.warn("AccessDenied: {}", e.getMessage());
         return fail(ErrorCode.FORBIDDEN, null, null);
     }
+
     // == 404 NOT_FOUND : 엔티티 조회 실패
     @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity<ResponseDto<Object>> handleNotFound(EntityNotFoundException e){
+    public ResponseEntity<ResponseDto<Object>> handleNotFound(EntityNotFoundException e) {
         log.warn("NotFound: {}", e.getMessage());
         return fail(ErrorCode.NOT_FOUND, null, null);
     }
+
     // == 409 CONFLICT : 무결성 위반(중복/제약조건)
     @ExceptionHandler(DataIntegrityViolationException.class) // Unique 키 충돌 , FK 위반
-    public ResponseEntity<ResponseDto<Object>> handleConflict(DataIntegrityViolationException e){
+    public ResponseEntity<ResponseDto<Object>> handleConflict(DataIntegrityViolationException e) {
         log.warn("Conflict: {}", e.getMessage());
         return fail(ErrorCode.CONFLICT, null, null);
     }
+
+
     // == 500 INTERNAL Server _ERROR : 그밖에 모든 예외에 대한 최종 안정망
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ResponseDto<Object>> handleException(Exception e){
+    public ResponseEntity<ResponseDto<Object>> handleException(Exception e) {
         log.error("Iternal error", e);
         return fail(ErrorCode.INTERNAL_ERROR, null, null);
     }

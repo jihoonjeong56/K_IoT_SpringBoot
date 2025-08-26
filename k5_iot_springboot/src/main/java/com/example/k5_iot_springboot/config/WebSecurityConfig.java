@@ -2,6 +2,8 @@ package com.example.k5_iot_springboot.config;
 
 import com.example.k5_iot_springboot.filter.JwtAuthenticationFilter;
 
+import com.example.k5_iot_springboot.handler.JsonAccessDeniedHandler;
+import com.example.k5_iot_springboot.handler.JsonAuthenticationEntryPoint;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -13,10 +15,11 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -42,6 +45,8 @@ import java.util.List;
 
 public class WebSecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter; // 사용자 정의 JWT 검증 필터
+    private final JsonAuthenticationEntryPoint jsonAuthenticationEntryPoint;
+    private final JsonAccessDeniedHandler jsonAccessDeniedHandler;
 
     // CORS 관련 속성을 properties 에서 주입받아 콤마(,) 로 분리하여 저장하는 데이터
     @Value("${cors.allowed-origins:*}") // https://app.example.com, https://admin.example.com
@@ -118,7 +123,7 @@ public class WebSecurityConfig {
      *- CSRF 보호를 비활성화, CORS 정책을 활성화
      *=========== */
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, AuthenticationEntryPoint authenticationEntryPoint, AccessDeniedHandler accessDeniedHandler) throws Exception {
         http
                 // 1) CSRF 비활성(JWT + REST 조합에서 일반적)
                 .csrf(AbstractHttpConfigurer::disable)
@@ -130,7 +135,10 @@ public class WebSecurityConfig {
                 // 4) 예외 처리 지점 (필요 시 커스텀 핸들러 연결)
                 // : 폼 로그인 /HTTP Basic 비활성 - JWT 만 사용
                 .formLogin(AbstractHttpConfigurer::disable)
-                .httpBasic(AbstractHttpConfigurer::disable);
+                .httpBasic(AbstractHttpConfigurer::disable)
+                .exceptionHandling(ex -> ex.authenticationEntryPoint(authenticationEntryPoint)
+                        .accessDeniedHandler(accessDeniedHandler)
+                );
 
         // H2 DB 콘솔은 웹 브라우저에 iframe 태그를 사용하여 페이지를 띄움
         // : 로컬 개발 환경에서도 H2 콘솔을 보려면 해당 설정 필요
