@@ -78,6 +78,7 @@ public class GlobalExceptionHandler {
         return fail(ErrorCode.VALIDATION_ERROR, null, toFieldErrors(e));
     }
 
+    // == 401 Unauthorized : 권한 없음
     @ExceptionHandler(AuthenticationException.class)
     public ResponseEntity<ResponseDto<Object>> handleAuth(AuthenticationException e) {
         log.warn("UnAuthorized: {}", e.getMessage());

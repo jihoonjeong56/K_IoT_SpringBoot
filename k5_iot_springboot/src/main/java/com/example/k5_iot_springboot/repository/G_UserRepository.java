@@ -13,4 +13,5 @@ public interface G_UserRepository extends JpaRepository<G_User, Long> {
     boolean existsByLoginId(String loginId);
     boolean existsByEmail(String email);
     boolean existsByNickname(String nickname);
+
 }
