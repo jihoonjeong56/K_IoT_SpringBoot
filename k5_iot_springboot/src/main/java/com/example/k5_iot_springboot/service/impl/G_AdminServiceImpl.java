@@ -111,6 +111,7 @@ public class G_AdminServiceImpl implements G_AdminService {
     }
 
     @Override
+    @Transactional
     public ResponseDto<RoleManageResponse.RemoveRoleResponse> removeRole(
             UserPrincipal principal, RoleManageRequest.@Valid RemoveRoleRequest req
     ) {

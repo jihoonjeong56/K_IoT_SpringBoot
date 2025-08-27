@@ -133,6 +133,10 @@ COMMENT = '사용자 권한';
 
 SELECT * FROM user_roles;
 
+# sample data
+INSERT INTO user_roles(user_id, role)
+values(1, "ADMIN");
+
 USE k5_iot_springboot;
 
 

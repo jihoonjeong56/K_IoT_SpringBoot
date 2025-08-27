@@ -2,8 +2,7 @@ package com.example.k5_iot_springboot.controller;
 
 import com.example.k5_iot_springboot.dto.G_Admin.request.RoleManageRequest;
 import com.example.k5_iot_springboot.dto.G_Admin.response.RoleManageResponse;
-import com.example.k5_iot_springboot.dto.G_Auth.response.SignInResponse;
-import com.example.k5_iot_springboot.dto.G_User.request.RoleModifyRequest;
+
 import com.example.k5_iot_springboot.dto.ResponseDto;
 import com.example.k5_iot_springboot.security.UserPrincipal;
 import com.example.k5_iot_springboot.service.G_AdminService;
@@ -56,6 +55,7 @@ public class G_AdminController {
 
     // 권한 삭제
     @PostMapping("/roles/remove")
+
     public ResponseEntity<ResponseDto<RoleManageResponse.RemoveRoleResponse>> removeRoles(
             @AuthenticationPrincipal UserPrincipal principal, // 관리자 토큰 정보 가져오기
             @Valid @RequestBody RoleManageRequest.RemoveRoleRequest req

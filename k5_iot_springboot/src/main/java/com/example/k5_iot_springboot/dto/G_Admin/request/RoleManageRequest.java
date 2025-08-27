@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Positive;
 
 import java.util.Set;
 
-public class RoleManageRequest {
+public final class RoleManageRequest {
     /** 특정 사용자(userId)의 권한을 해당 Set 으로 교채(갱신)*/
     public record UpdateRolesRequest(
             @NotNull(message = "userId는 필수 입니다.")

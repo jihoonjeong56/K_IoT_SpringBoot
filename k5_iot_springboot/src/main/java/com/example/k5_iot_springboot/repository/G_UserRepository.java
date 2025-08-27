@@ -30,15 +30,16 @@ public interface G_UserRepository extends JpaRepository<G_User, Long> {
     @EntityGraph(attributePaths = "roles")
     Optional<G_User> findByLoginId(String longinId);
 
+    @EntityGraph(attributePaths = "roles")
+    Optional<G_User> findWithRolesById(
+            @NotNull(message = "userId는 필수 입니다.")
+            @Positive(message = "userId는 양수여야 합니다.")
+            Long id);
     boolean existsByLoginId(String loginId);
 
     boolean existsByEmail(String email);
 
     boolean existsByNickname(String nickname);
 
-    @EntityGraph(attributePaths = "roles")
-    Optional<G_User> findWithRolesById(
-            @NotNull(message = "userId는 필수 입니다.")
-            @Positive(message = "userId는 양수여야 합니다.")
-            Long id);
+
 }
