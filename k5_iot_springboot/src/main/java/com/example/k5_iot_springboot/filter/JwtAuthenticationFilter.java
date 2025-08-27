@@ -3,6 +3,8 @@ package com.example.k5_iot_springboot.filter;
 import com.example.k5_iot_springboot.entity.G_User;
 import com.example.k5_iot_springboot.provider.JwtProvider;
 import com.example.k5_iot_springboot.repository.G_UserRepository;
+import com.example.k5_iot_springboot.security.UserPrincipal;
+import com.example.k5_iot_springboot.security.UserPrincipalMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,13 +18,13 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -43,6 +45,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter { // 매 요�
     private static final String AUTH_HEADER = "Authorization"; //요청 헤더 키
     private static final String BEARER_PREFIX = JwtProvider.BEARER_PREFIX;
     private final JwtProvider jwtProvider; // 의존성 주입
+    private final G_UserRepository userRepository;
+    private final UserPrincipalMapper userPrincipalMapper;
 
     /**
      * OncePerRequestFilter 내부 추상 메서드 - 반드시 구현해야함
@@ -84,14 +88,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter { // 매 요�
             }
 
             // 4) "Bearer " 접두사가 없으면 형식 오류 - 401즉시 응답
-            if(!authorization.startsWith(BEARER_PREFIX)){
+            if (!authorization.startsWith(BEARER_PREFIX)) {
                 unauthorized(response, "Authorization 헤더는 \"Bearer <token> 형식이어야 합니다.\"");
                 return;
             }
 
             // 5) 접두사 제거 -> 순수 토큰("Bearer 제거)
             String token = jwtProvider.removeBearer(authorization);
-            if(token.isBlank()){
+            if (token.isBlank()) {
                 unauthorized(response, "토큰이 비어 있습니다.");
             }
 
@@ -102,22 +106,30 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter { // 매 요�
             }
             // 7) 사용자 식별자 & 권한 추출
             String username = jwtProvider.getUsernameFromJwt(token);
-            Set<String> roles = jwtProvider.getRolesFromJwt(token);
+
+            // +) DB 재조회 - UserPrincipal 구성(최신권한/상태반영)
+            G_User user = userRepository.findByLoginId(username)
+                    .orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다."));
+
+            //Set<String> roles = jwtProvider.getRolesFromJwt(token);
 
             // 8) 변환 문자열 - GrantedAuthority로 매핑("ROLE_" 접두어 보당)
             // : 스프링 시큐리티가 이해하는 권한 타입으로 변환
             // >> 권한 명 앞에 "ROLE_" 접두사가 필요
-            Collection<? extends GrantedAuthority> authorities = toAuthorities(roles);
+           // Collection<? extends GrantedAuthority> authorities = toAuthorities(roles);
+
+            // >> user 데이터에 최신 권한 반영
+            UserPrincipal principal = userPrincipalMapper.map(user);
 
             // 9) SecurityContext에 인증 저장
             // : 인증 객체를 만들고 SecurityContext에 저장
             // >> 해당 시점부터 현재 요청은 "username 이라는 사용자가 authorities 권한으로 인증됨" 상태가 됨
-            setAuthenticationContext(request, username, authorities);
+            setAuthenticationContext(request, principal);
 
 
         } catch (Exception e) {
             logger.warn("JWT Filter Error", e);
-            unauthorized(response,"인증 처리중 오류가 발생하였습니다.");
+            unauthorized(response, "인증 처리중 오류가 발생하였습니다.");
             return;
         }
         // 10) 다음 필터로 진행 (체인 계속 진행)
@@ -125,13 +137,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter { // 매 요�
     }
 
 
-
     /**
      * SecurityContextHolder에 인증 객체 세팅
      */
     private void setAuthenticationContext(HttpServletRequest request,
-                                          String username,
-                                          Collection<? extends GrantedAuthority> authorities
+                                         UserPrincipal principal
     ) {
         // 0) 사용자 ID 또는 고유 데이터 를 바탕으로 인증 토큰 생성
         // UsernamePasswordAuthenticationToken 클래스는 스프링 시큐리티에서 자주 쓰이는
@@ -143,7 +153,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter { // 매 요�
 
         //cf) 권한이 있는 경우(비워지지않은 경우) - isAuthenticated=true
         AbstractAuthenticationToken authenticationToken =
-                new UsernamePasswordAuthenticationToken(username, null, authorities);
+                new UsernamePasswordAuthenticationToken(principal, null, principal.getAuthorities());
         // 요청에 대한 세부 정보 설정
         // : 생성된 인증 토큰에 요청의 세부사항 설정 (예: 원격 IP, 세션 ID 등)
         authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
@@ -174,7 +184,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter { // 매 요�
 
         // +) hasAuthority("권한")는 명시된 문자열 그대로 권한을 확인
     }
-    /** 401 응답 헬퍼(JSON)*/
+
+    /**
+     * 401 응답 헬퍼(JSON)
+     */
     private void unauthorized(HttpServletResponse response, String message) throws IOException {
         // HTTP 상태코드, 문자 인코딩 설정, 응답 본문 형식, JSON 문자열의 응답 본문을 정의 & 기록
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);

@@ -59,7 +59,7 @@ public class JwtProvider {
      */
     // 환경변수에 지정한 비밀키와 만료 시간 저장 변수 선언
     private final SecretKey key;
-    private final int jwtExpirationMs;
+    private final long jwtExpirationMs;
     private final int clockSkewSeconds;
 
     // 검증/파싱 파서 : 파서를 생성자에서 1회 구성하여 재사용 - 성능 및 일관성 보장(JJWT의 파서 객체)
@@ -71,7 +71,7 @@ public class JwtProvider {
             //          >> 데이터 타입 자동 인식
             // -----------필수사항------------//
             @Value("${jwt.secret}") String secret, //cf) Base64 인코딩된 비밀키 문자열이어야 함
-            @Value("${jwt.expiration}") int jwtExpirationMs,
+            @Value("${jwt.expiration}") long jwtExpirationMs,
             // -----------선택사항------------//
             @Value("${jwt.clock-skew-seconds:0}") int clockSkewSeconds // 기본 0 - 옵션
 
@@ -214,6 +214,7 @@ public class JwtProvider {
      */
     @SuppressWarnings("unchecked") // 제네릭 캐스팅 경고 억제(런타임 타입 확인으로 보완)
     // 전체적으로 Object로 받아 다운캐스팅 형태 -> Set, List 구분없이 받아와 각각에 맞게에 반환할 수 있다.
+
     public Set<String> getRolesFromJwt(String tokenWithoutBearer) {
         // get("roles")로 커스텀 클레임을 가져오면, JSON 파싱 결과가  List로 반환이 일반적
         //      >> 문자열 집합(Set<String>)으로 표준화 하여 반환

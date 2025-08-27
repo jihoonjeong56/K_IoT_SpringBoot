@@ -56,7 +56,7 @@ public class WebSecurityConfig {
     @Value("${cors.allowed-method:GET, POST, PUT, PATCH, DELETE, OPTIONS}")
     private String allowedMethods;
 
-    @Value("${cors.exposed-header:Authorization, Set-cookie}")
+    @Value("${cors.exposed-header:Authorization, Set-Cookie}")
     private String exposedHeaders;
 
     @Value("${Security.h2-console:true}") //개발에 대한 편의성을 위해 로컬 개발 시 true값 설정
@@ -151,23 +151,33 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth -> {
                             // H2 콘솔 접근 권한 열기(개발 환경에서 DB를 직접 확인하기 때문에 -> 인증 절차 없이 접속할 수 있도록 예외) - 개발편의를 위해(실무에서 배포시에는 하면 안됨;)
                             if (h2ConsoleEnabled) auth.requestMatchers("/h2-console/**").permitAll();
+
+                            // SecurityFilterChain URL 보안 규칙
                             auth
                                     // PreFlight 허용
                                     .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+
+                                    //===  url 레벨에서 1차 차잔(+ 컨트롤러 메서드에서 @PreAuthorize 로 2차방어)
                                     // 인증 / 회원가입 등 공개 엔드 포인트 - 토큰이 필요없는 기능
                                     .requestMatchers("/api/v1/auth/**").permitAll()
+
+                                    // 마이페이지(내 정보) - 인증 필요(모든 역할 가능)
+                                    .requestMatchers("/api/v1/users/me/**").authenticated()
+
+                                    // boards 접근 제어
+                                    .requestMatchers(HttpMethod.GET, "/api/v1/boards/**").hasAnyRole("USER","MANAGER","ADMIN")
+                                    .requestMatchers(HttpMethod.POST,"/api/v1/boards/**" ).hasAnyRole("MANAGER","ADMIN")
+                                    .requestMatchers(HttpMethod.PUT, "/api/v1/boards/**").hasAnyRole("MANAGER","ADMIN")
+                                    .requestMatchers(HttpMethod.DELETE, "/api/v1/boards/**").hasAnyRole("ADMIN") // hasAnyRole? or hasRole
+
+                                    // ADMIN 전용 권한 관리 API
+                                    .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
+
                                     // 읽기 공개 예시 (게시글 목록, 조회 등)
-                                    .requestMatchers(HttpMethod.GET, "/api/v1/boards/**").permitAll()
+                                    //.requestMatchers(HttpMethod.GET, "/api/v1/boards/**").permitAll()
                                     .anyRequest().authenticated(); // 나머지는 인증 필요 - JWT 토큰이 있어야 접근 가능
                         }
                 );
-//        if (h2ConsoleEnabled) {
-//            http.headers(headers
-//                    -> headers.frameOptions(frame -> frame.sameOrigin()));
-//            http.authorizeHttpRequests(auth
-//                    -> auth.requestMatchers("/h2-console/**").permitAll());
-//        }
-
         // JWT 인증 필터를 UsernamePasswordAuthenticationFilter 앞에 배치
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
