@@ -17,9 +17,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -45,8 +43,8 @@ import java.util.List;
 
 public class WebSecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter; // 사용자 정의 JWT 검증 필터
-    private final JsonAuthenticationEntryPoint jsonAuthenticationEntryPoint;
-    private final JsonAccessDeniedHandler jsonAccessDeniedHandler;
+    private final JsonAuthenticationEntryPoint authenticationEntryPoint;
+    private final JsonAccessDeniedHandler accessDeniedHandler;
 
     // CORS 관련 속성을 properties 에서 주입받아 콤마(,) 로 분리하여 저장하는 데이터
     @Value("${cors.allowed-origins:*}") // https://app.example.com, https://admin.example.com
@@ -123,7 +121,7 @@ public class WebSecurityConfig {
      *- CSRF 보호를 비활성화, CORS 정책을 활성화
      *=========== */
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http, AuthenticationEntryPoint authenticationEntryPoint, AccessDeniedHandler accessDeniedHandler) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 // 1) CSRF 비활성(JWT + REST 조합에서 일반적)
                 .csrf(AbstractHttpConfigurer::disable)
