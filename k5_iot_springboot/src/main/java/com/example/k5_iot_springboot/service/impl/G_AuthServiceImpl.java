@@ -1,6 +1,5 @@
 package com.example.k5_iot_springboot.service.impl;
 
-import com.example.k5_iot_springboot.config.WebSecurityConfig;
 import com.example.k5_iot_springboot.dto.G_Auth.request.SignInRequest;
 import com.example.k5_iot_springboot.dto.G_Auth.request.SignUpRequest;
 import com.example.k5_iot_springboot.dto.G_Auth.response.SignInResponse;
@@ -50,9 +49,11 @@ public class G_AuthServiceImpl implements G_AuthService {
         if (userRepository.existsByNickname(req.nickname())) {
             throw new IllegalArgumentException("이미사용중인 닉네임 입니다.");
         }
+        /*
         if(req.password().contains(req.loginId())){
             throw new IllegalArgumentException("아이디와 중복되는 비밀번호는 사용할 수 없습니다.");
         }
+         */
         // 2) 비밀번호 해시 - BCrypt 패스워드
         String encoded = passwordEncoder.encode(req.password());
 

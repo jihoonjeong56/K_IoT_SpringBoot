@@ -8,36 +8,41 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.List;
-
 /**
  * === UserPrincipal ===
- * : "보안 관점에서 사용자 표현"을 담당하는 값 객체(Value Object)
+ * : "보안 관점에서 사용자 표현"을 담당하는 값 객체(Value Object, VO(createAt 과 같은 서비스는 담기지 않음))
  * - Spring Security가 인증/인가 과정에서 인지하는 최소한의 사용자 정보 집합
  * - 엔티티(G_User) 자체를 지니지 않고, 인증이 필요한 값만 안전하게 전달/보관
  * >> 결합도 낮춤, 캐시/직렬화 안정성 향상
- * <p>
+ * <
  * 필요성
  * 1) Security의 표준 진입점: AuthenticationProvider는 UserDetails 타입을 통해 사용자 정보와 권한을 검사
- * >> 토큰 payload의 username을 통해 DB 에서 사용자 정보를 읽고 해당 클래스로 감싼 뒤 반환
+ * >> CustomUserDetailsService#loadUserByUsername() 에서(토큰 payload의 username을 통해) DB 에서 사용자 정보를 읽고 해당 클래스로 감싼 뒤 반환,
  * , 이후 인증 과정이 표준화 되어 동작
- * <p>
+ *
  * 2) 경량/안정성 향상: 영속성 엔티티(G_User)를 SecurityContext에 보관하면
  * , 직렬화 문제, 지연로딩, 순환 참조 등의 문제 발생 가능성이 증가한다.
- * <p>
+ * >> VO 형태의 UserPrincipal은 인증에 필요한 최소 데이터만 포함하고 있어 안전하다.
+ *
  * >> 인증 성공 시 Authentication(principal)에 들어가 SecurityContextHolder에 저장됨
  * - 컨트롤러 @AuthenticationPrincipal UserPrincipal principal로 주입 받아 사용
- * <p>
+ * - JWT 발급시 클레임으로 id/username/roles를 넣는 출처로 활용
+ *
+ * >> 권한 모델(authorities): GrantedAuthority 집합
+ *      EX) new SimpleGrantedAuthority("ROLE_USER")
+ *      - 스프링 시큐리티의 hasRole("USER") / hasAuthority("ROLE_USER") 검사와 호환되도록 "ROLE_" 접두어를 붙이는 것을 권장
+ *
  * >> 설계 포인트
  * 1) 불변성 : 모든 필드는 final(생성 이후 변경 불가)
  * 2) @JsonIgnore, @ToString(exclude="password")를 통해 비밀번호 유출 2중 차단
  * 3) 빌더 사용: 가독성 향상, 테스트 용이
  */
 @Getter
-@ToString(exclude = "password")
+@ToString(exclude = "password") // 로그 등에 password가 노출되지 않도록 ToString 제외
 @Builder
 public class UserPrincipal implements UserDetails {
     // UserDetails : 시큐리티가 요구하는 사용자 정보 인터페이스
+    //              >> Spring Security 가 사용자의 정보를 불러오기 위해서는 UserDetails를 구현해야 함
 
     private final Long id;  //PK
     private final String username; // 로그인 아이디
@@ -59,9 +64,10 @@ public class UserPrincipal implements UserDetails {
     private final boolean credentialsNonExpired; // 비밀번호(자격) 만료 여부
     private final boolean enabled; // 활성화 여부
 
-    /** 생성자 : 불변 객체 생성을 위한 Builder 기반 생성자
-     *  - 서비스/어댑터 계층에서 엔티티 정보를 읽고, 필요한 정보만 골라 UserPrincipal로 변환하여 반환
-     * */
+    /**
+     * 생성자 : 불변 객체 생성을 위한 Builder 기반 생성자
+     * - 서비스/어댑터 계층에서 엔티티 정보를 읽고, 필요한 정보만 골라 UserPrincipal로 변환하여 반환
+     */
     private UserPrincipal(
             Long id, //PK
             String username, // 로그인 아이디
@@ -83,20 +89,27 @@ public class UserPrincipal implements UserDetails {
     }
 
     // === UserDetails 인터페이스 구현 === //
+
     /**
      * Spring Security가 AuthenticationProvider 및 AccessDecisionManager를 통해
-     *          인증/인가 수행 시 아래의 메서드 사용
-     *
+     * 인증/인가 수행 시 아래의 메서드 사용
+     * <p>
      * >> 값 반환 이외의 로직은 수행하지 않는다.
-     * */
+     */
     @Override public Collection<? extends GrantedAuthority> getAuthorities() {return authorities;}
-
+    // : 계정의 권한 목록 리턴
     @Override public String getPassword() {return password;}
-
+    // : 계정의 비밀번호 리턴
+    // >> 인증 단계에서 DaoAuthenticationProvider가 비밀번호 매칭에 사용(반드시 해시값!)
     @Override public String getUsername() {return username;}
+    // : 계정의 고유값을 리턴!
+    // >> DB PK 값, 중복이 없는 유니크 값
     @Override public boolean isAccountNonExpired() {return accountNonExpired;}
+    // : 계정의 만료 여부 리턴
     @Override public boolean isAccountNonLocked() {return accountNonLocked;}
+    // : 계정의 잠김 여부 리턴
     @Override public boolean isCredentialsNonExpired() {return credentialsNonExpired;}
+    // : 비밀번호 만료 여부 리턴
     @Override public boolean isEnabled() {return enabled;}
-
+    // : 계정의 활성화 여부 리턴
 }

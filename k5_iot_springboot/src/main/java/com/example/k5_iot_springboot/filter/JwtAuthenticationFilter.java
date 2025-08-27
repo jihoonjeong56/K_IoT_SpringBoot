@@ -1,6 +1,8 @@
 package com.example.k5_iot_springboot.filter;
 
+import com.example.k5_iot_springboot.entity.G_User;
 import com.example.k5_iot_springboot.provider.JwtProvider;
+import com.example.k5_iot_springboot.repository.G_UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -99,7 +101,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter { // 매 요�
                 return;
             }
             // 7) 사용자 식별자 & 권한 추출
-
             String username = jwtProvider.getUsernameFromJwt(token);
             Set<String> roles = jwtProvider.getRolesFromJwt(token);
 
