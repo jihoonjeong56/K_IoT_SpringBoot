@@ -3,8 +3,7 @@ package com.example.k5_iot_springboot.service.impl;
 import com.example.k5_iot_springboot.common.enums.RoleType;
 import com.example.k5_iot_springboot.dto.G_Admin.request.RoleManageRequest;
 import com.example.k5_iot_springboot.dto.G_Admin.response.RoleManageResponse;
-import com.example.k5_iot_springboot.dto.G_Auth.response.SignInResponse;
-import com.example.k5_iot_springboot.dto.G_User.request.RoleModifyRequest;
+
 import com.example.k5_iot_springboot.dto.ResponseDto;
 import com.example.k5_iot_springboot.entity.G_User;
 import com.example.k5_iot_springboot.repository.G_UserRepository;
@@ -13,7 +12,7 @@ import com.example.k5_iot_springboot.service.G_AdminService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -66,28 +65,30 @@ public class G_AdminServiceImpl implements G_AdminService {
     }
    */
 
-    @Override
-    @Transactional
-    public ResponseDto<RoleManageResponse.UpdateRolesResponse> replaceRoles(
-            UserPrincipal principal, RoleManageRequest.@Valid UpdateRolesRequest req
-    ) {
-        // 1) 갱신될 사용자 정보 조회
-        G_User user = userRepository.findWithRolesById(req.userId())
-                .orElseThrow(() -> new EntityNotFoundException("해당 id의 user가 없습니다."));
-        // 2) 전체 교체 갱신 - 요청에 @NotEmpty 이므로 최소 1개 이상의 권한을 보장
-        user.getRoles().clear();
-        req.roles().forEach(user::addRole);
+        @Override
+        @Transactional
+        public ResponseDto<RoleManageResponse.UpdateRolesResponse> replaceRoles(
+                UserPrincipal principal, RoleManageRequest.@Valid UpdateRolesRequest req
+        ) {
+            // 1) 갱신될 사용자 정보 조회
+            G_User user = userRepository.findWithRolesById(req.userId())
+                    .orElseThrow(() -> new EntityNotFoundException("해당 id의 user가 없습니다."));
 
-        userRepository.flush();
-        RoleManageResponse.UpdateRolesResponse data = new RoleManageResponse.UpdateRolesResponse(
-                user.getId(),
-                user.getLoginId(),
-                Set.copyOf(user.getRoles()), // 방어적 복사를 하는 이유 - JPA 엔티티 필드를 DTO 내부에서 조작할 경우 캠슐화 깨림 위험
-                user.getUpdatedAt()
-        );
-        return ResponseDto.setSuccess("SUCCESS", data);
-    }
+            // 2) 전체 교체 - 요청에 @NotEmpty 이므로 최소 1개 이상의 권한을 보장!
+            user.getRoles().clear();
+            req.roles().forEach(user::addRole);
 
+            userRepository.flush();
+
+            RoleManageResponse.UpdateRolesResponse data = new RoleManageResponse.UpdateRolesResponse(
+                    user.getId(),
+                    user.getLoginId(),
+                    Set.copyOf(user.getRoles()), // 방어적 복사 - JPA 엔티티 컬렉션 필드를 DTO 내부에서 조작할 경우 캡슐화 깨짐 위험
+                    user.getUpdatedAt()
+            );
+
+            return ResponseDto.setSuccess("SUCCESS", data);
+        }
     @Override
     @Transactional
     public ResponseDto<RoleManageResponse.AddRoleResponse> addRole(

@@ -125,17 +125,19 @@ CREATE TABLE IF NOT EXISTS user_roles (
     CONSTRAINT fk_user_roles_user
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     CONSTRAINT uk_user_roles UNIQUE (user_id, role),
-    CONSTRAINT chk_user_roles_role CHECK (role IN ('USER','MANAGET', 'ADMIN'))
+    CONSTRAINT chk_user_roles_role CHECK (role IN ('USER','MANAGER', 'ADMIN'))
 ) ENGINE = InnoDB
 DEFAULT CHARSET = utf8mb4
 COLLATE = utf8mb4_unicode_ci
 COMMENT = '사용자 권한';
-
+Drop table uer_roles;
 SELECT * FROM user_roles;
+
 
 # sample data
 INSERT INTO user_roles(user_id, role)
 values(1, "ADMIN");
+
 
 
 #0828 H_Article
