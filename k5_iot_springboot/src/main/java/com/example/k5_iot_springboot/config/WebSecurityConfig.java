@@ -161,6 +161,7 @@ public class WebSecurityConfig {
                                     // 인증 / 회원가입 등 공개 엔드 포인트 - 토큰이 필요없는 기능
                                     .requestMatchers("/api/v1/auth/**").permitAll()
 
+
                                     // 마이페이지(내 정보) - 인증 필요(모든 역할 가능)
                                     .requestMatchers("/api/v1/users/me/**").authenticated()
 
@@ -169,6 +170,9 @@ public class WebSecurityConfig {
                                     .requestMatchers(HttpMethod.POST,"/api/v1/boards/**" ).hasAnyRole("MANAGER","ADMIN")
                                     .requestMatchers(HttpMethod.PUT, "/api/v1/boards/**").hasAnyRole("MANAGER","ADMIN")
                                     .requestMatchers(HttpMethod.DELETE, "/api/v1/boards/**").hasAnyRole("ADMIN") // hasAnyRole? or hasRole
+
+                                    //article 접근 제어
+                                    .requestMatchers(HttpMethod.GET,"/api/v1/articles/**").permitAll()
 
                                     // ADMIN 전용 권한 관리 API
                                     .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")

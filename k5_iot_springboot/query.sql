@@ -137,7 +137,32 @@ SELECT * FROM user_roles;
 INSERT INTO user_roles(user_id, role)
 values(1, "ADMIN");
 
+
+#0828 H_Article
+-- 기사 테이블
+CREATE TABLE IF NOT EXISTS articles (
+	id BIGINT AUTO_INCREMENT,
+    title VARCHAR(200) NOT NULL,
+    content LONGTEXT NOT NULL,
+    author_id BIGINT NOT NULL,
+    created_at DATETIME(6) NOT NULL,
+    updated_at DATETIME(6) NOT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_article_author
+		FOREIGN KEY(author_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
+) ENGINE = InnoDB
+DEFAULT CHARSET = utf8mb4
+COLLATE = utf8mb4_unicode_ci
+COMMENT = '기사 게시글';
+
+SELECT * FROM articles;
+desc articles;
+
 USE k5_iot_springboot;
+
+
 
 
 
