@@ -152,7 +152,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         //  - 첫 번째 인자 Principal (추후 해당 요청에서 파라미터 값으로 해당 값을 자동 추출)
         //  - 두 번째 인자 Credentials (이미 토큰 검증을 마쳤으므로 null 전달, 중복 검증 필요 X)
         //  - 세 번째 인자 권한 목록
-        //  >> "username이라는 사용자가 authorities 권한으로 인증됨" 상태가 됨
+        //  >> "username 이라는 사용자가 authorities 권한으로 인증됨" 상태가 됨
 
         // cf) 권한이 있는 경우(비워지지 않은 경우) - isAuthenticated=true
         AbstractAuthenticationToken authenticationToken =

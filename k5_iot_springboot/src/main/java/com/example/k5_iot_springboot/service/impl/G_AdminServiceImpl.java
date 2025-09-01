@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
-import java.util.stream.Collectors;
+
 
 @Service
 @RequiredArgsConstructor
@@ -25,45 +25,6 @@ import java.util.stream.Collectors;
 public class G_AdminServiceImpl implements G_AdminService {
     private final G_UserRepository userRepository;
 
-  /*
-    // 권한 갱신
-    @Override
-    @Transactional
-    public ResponseDto<Void> replaceRoles(UserPrincipal principal, RoleModifyRequest req) {
-        return null;
-    }
-
-    // 권한 추가
-    @Override
-    @Transactional
-    public ResponseDto<SignInResponse> addRoles(UserPrincipal principal, RoleModifyRequest req) {
-        G_User user = userRepository.findByLoginId(principal.getUsername())
-                .orElseThrow(() -> new IllegalArgumentException("대상 사용자를 찾을 수 없습니다."));
-        if(req.role() == null || user.getRoles().contains(req.role())){
-            throw new IllegalArgumentException("추가할 역할 이 없거나 이미 존재하는 역할입니다.");
-        }
-
-        user.getRoles().add(req.role());
-        SignInResponse response = new SignInResponse(
-                "",
-                "",
-                0,
-                user.getLoginId(),
-                user.getRoles().stream()
-                        .map(Enum::name)
-                        .collect(Collectors.toSet())
-        );
-
-        return ResponseDto.setSuccess("권한이 추가되었습니다.",response);
-    }
-
-    // 권한 삭제
-    @Override
-    @Transactional
-    public ResponseDto<Void> removeRoles(UserPrincipal principal, RoleModifyRequest req) {
-        return null;
-    }
-   */
 
         @Override
         @Transactional
@@ -86,7 +47,6 @@ public class G_AdminServiceImpl implements G_AdminService {
                     Set.copyOf(user.getRoles()), // 방어적 복사 - JPA 엔티티 컬렉션 필드를 DTO 내부에서 조작할 경우 캡슐화 깨짐 위험
                     user.getUpdatedAt()
             );
-
             return ResponseDto.setSuccess("SUCCESS", data);
         }
     @Override
