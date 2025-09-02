@@ -166,6 +166,13 @@ public class WebSecurityConfig {
                                     // ADMIN 전용 권한 관리 API
                                     .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
 
+                                    // products 접근 제어
+                                    .requestMatchers(HttpMethod.GET, "/api/v1/products/**").permitAll()
+                                    .requestMatchers(HttpMethod.POST, "/api/v1/products/**").hasRole("ADMIN")
+                                    .requestMatchers(HttpMethod.PUT, "/api/v1/products/**").hasRole("ADMIN")
+
+
+
                                     .anyRequest().authenticated(); // 나머지는 인증 필요 - JWT 토큰이 있어야 접근 가능
                         }
                 );

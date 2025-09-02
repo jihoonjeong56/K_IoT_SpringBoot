@@ -24,13 +24,12 @@ import java.time.LocalDateTime;
 public class OrderSummaryView {
     @Id @Column(name = "order_id")
     private Long orderId;
-
     private Long user_id;               // 뷰 컬러명 그대로 사용
     private String order_status;        // 문자열 컬럼(필요시 enum 반환은 서비스에서 반환한다.)
     private String product_name;
     private Integer quantity;           // 정수형 컬럼
     private Integer price;
-    private Integer total_price;
+    private Long total_price;
 
     @Column(name = "ordered_at")
     private LocalDateTime orderedAt;
