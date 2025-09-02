@@ -219,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `stocks`(
     updated_at		DATETIME(6) NOT NULL,
     CONSTRAINT fk_orders_user
 		FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-	CONSTRAINT chk_orders_os CHECK (order_status IN ('PENDING','APPROVED','CANCELLED')),
+	CONSTRAINT chk_orders_os CHECK (order_status IN ('PENDING','APPROVED','CANCELLED')), # Java EnumType
     INDEX idx_orders_user (user_id),
     INDEX idx_orders_status (order_status),
     INDEX idx_orders_created_at (created_at)
@@ -282,6 +282,75 @@ VALUES
 	(2, 30, NOW(6), NOW(6)),
 	(3, 70, NOW(6), NOW(6)),
 	(4, 20, NOW(6), NOW(6));
+    
+### 0902 CREATE VIEW
+-- 뷰 (행 단위) 
+-- : 주문 상세 화면(API) - 한 주문의 각 상품 라인 아이템 정보를 상세하게 제공할 때
+-- : EX) GET /api/v1/orders/{orderId}/items
+CREATE OR REPLACE VIEW order_summary AS
+SELECT
+	o.id 					AS order_id,
+    o.user_id				AS user_id,
+    o.order_status			AS order_status,
+    p.name					AS product_name,
+    oi.quantity				AS quantity,
+    p.price					AS price,
+    (oi.quantity * p.price)	AS total_price,
+    o.created_at			AS ordered_at
+FROM
+	orders o
+    JOIN order_items oi	ON o.id = oi.order_id
+    JOIN products p ON oi.product_id = p.id;
+
+SELECT * FROM order_summary;
+DESCRIBE order_summary;
+
+
+-- 뷰 (주분 합계)
+CREATE OR REPLACE VIEW order_totals AS
+SELECT 
+	o.id						AS order_id,
+    o.user_id					AS	user_id,
+    o.order_status				AS order_status,
+    SUM(oi.quantity * p.price)	AS order_total_amount,
+    SUM(oi.quantity)			AS order_total_qty,
+    MIN(o.created_at)			AS ordered_at
+FROM
+	orders o
+    JOIN order_items oi	ON o.id = oi.order_id
+    JOIN products p ON oi.product_id = p.id
+GROUP BY
+	o.id, o.user_id, o.order_status; -- 주문별 합계 : 주문(orders) 정보를 기준으로 그룹화!
+
+SELECT * FROM order_totals;
+DESCRIBE order_totals;
+
+-- 트리거: 주문 생성 시 로그
+# 고객 문의/장애 분석 시 "언제 주문 레코드가 생겼는지" 원인 추적에 사용
+DELIMITER //
+CREATE TRIGGER trg_after_order_insert
+	AFTER INSERT ON orders
+	FOR EACH ROW
+    BEGIN
+		INSERT INTO order_logs(order_id, message)
+        VALUES (NEW.id, CONCAT('주문이 생성되었습니다. 주문 ID: ', NEW.id));
+	END //
+DELIMITER ;
+
+
+-- 트리거: 주문 상태 변경 시 로그
+# 상태 전이 추적 시 "누가 언제 어떤 상태로 변경하였는지" 원인 추적에 사용
+DELIMITER //
+CREATE TRIGGER trg_after_order_status_update
+	AFTER UPDATE ON orders	
+	FOR EACH ROW
+    BEGIN
+		IF NEW.order_status <> OLD.order_status THEN  --  A <> B 는 A!=B 와 같은의미(같지 않다)
+			INSERT INTO order_logs(order_id, message)
+            VALUES (NEW.id, CONCAT('주문 상태가', OLD.order_status, '->', NEW.order_status,'로 변경 되었습니다.'));
+		END IF;
+    END //
+DELIMITER ;
 
 SELECT * FROM `products`;
 SELECT * FROM `stocks`;
@@ -289,11 +358,13 @@ SELECT * FROM `orders`;
 SELECT * FROM `order_items`;
 SELECT * FROM `order_logs`;
 
-DESCRIBE `products	`;
+DESCRIBE `products`;
 DESCRIBE `stocks`;
 DESCRIBE `orders`;
 DESCRIBE `order_items`;
 DESCRIBE `order_logs`;
+
+
 
 USE k5_iot_springboot;
 

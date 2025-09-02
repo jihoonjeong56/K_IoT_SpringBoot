@@ -20,7 +20,6 @@ import lombok.NoArgsConstructor;
 public class I_Product extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column(name = "id", updatable = false)
     private Long id;
 
     @NotBlank
