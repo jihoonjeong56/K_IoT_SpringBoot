@@ -171,6 +171,11 @@ public class WebSecurityConfig {
                                     .requestMatchers(HttpMethod.POST, "/api/v1/products/**").hasRole("ADMIN")
                                     .requestMatchers(HttpMethod.PUT, "/api/v1/products/**").hasRole("ADMIN")
 
+                                    // stocks  접근제어
+                                    .requestMatchers(HttpMethod.GET, "/api/v1/stocks/**").permitAll()
+                                    .requestMatchers(HttpMethod.POST, "/api/v1/stocks/**").hasAnyRole("ADMIN","MANAGER")
+                                    .requestMatchers(HttpMethod.PUT, "/api/v1/stocks/**").hasAnyRole("ADMIN","MANAGER")
+
 
 
                                     .anyRequest().authenticated(); // 나머지는 인증 필요 - JWT 토큰이 있어야 접근 가능
