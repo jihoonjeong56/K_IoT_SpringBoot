@@ -66,5 +66,9 @@ public class I_Order extends BaseTimeEntity {
         this.orderStatus = (orderStatus != null) ? orderStatus: OrderStatus.PENDING ;
     }
 
+    public void setOrderStatus(OrderStatus orderStatus){
+        this.orderStatus = orderStatus;
+    }
+
 
 }

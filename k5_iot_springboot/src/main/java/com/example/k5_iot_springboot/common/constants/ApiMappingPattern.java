@@ -74,5 +74,10 @@ public class ApiMappingPattern {
         public static final String ADJUST = "/{adjust}";
         public static final String PRODUCT_ID = "/{productId}";
     }
+    // == 7. 주문(I_Order)
+    public static final class Order{
+        private Order(){}
+        public static final String ROOT = BASE + "/orders";
+    }
 
 }

@@ -37,7 +37,7 @@ public class I_StockController {
     public ResponseEntity<ResponseDto<StockResponse.Response>> set(
             @AuthenticationPrincipal UserPrincipal userPrincipal,
             @Valid @RequestBody StockRequest.StockSet req
-    ){
+    ) {
         ResponseDto<StockResponse.Response> response = stockService.set(userPrincipal, req);
         return ResponseEntity.ok(response);
     }
@@ -46,7 +46,7 @@ public class I_StockController {
     @GetMapping(ApiMappingPattern.Stocks.PRODUCT_ID)
     public ResponseEntity<ResponseDto<StockResponse.Response>> getByProductId(
             @PathVariable Long productId
-    ){
+    ) {
         ResponseDto<StockResponse.Response> response = stockService.get(productId);
         return ResponseEntity.ok(response);
     }
