@@ -9,6 +9,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Comment;
 
 import java.time.LocalDateTime;
 
@@ -35,6 +36,7 @@ public class I_Stock extends BaseTimeEntity {
 
 
     @Builder
+    @Comment()
     private I_Stock(I_Product product){
         this.product = product;
         this.quantity = 0;              // 재고 생성시 수량 초기화 = 0

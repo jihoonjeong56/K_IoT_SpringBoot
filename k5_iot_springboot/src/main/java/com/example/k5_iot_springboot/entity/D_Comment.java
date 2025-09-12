@@ -15,6 +15,7 @@ public class D_Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     // - Comment : Post = N : 1 관계에서 N 쪽 매핑임을 설정
     // -  Lazy 설정으로 필요할 때만 게시글을 로딩

@@ -20,13 +20,13 @@ public interface G_UserRepository extends JpaRepository<G_User, Long> {
     @Query("""
         SELECT u 
         FROM G_User u
-            LEFT JOIN FETCH u.roles
+            LEFT JOIN FETCH u.userRoles
         WHERE u.loginId = :loginId
     """)
     Optional<G_User> findWithRolesByLoginId(@Param("loginId") String loginId);
 
-    // 해결 방법 2) JPA 의 @EntityGraph을 사용하여 fetch join을 자동으로 적용 방식
-    // - @EntityGraph: DATA JP A에서 fetch 조인을 어노테이션으로 대신하는 기능
+    // 해결 방법 2) JPA의 @EntityGraph을 사용하여 fetch join을 자동으로 적용 방식
+    // - @EntityGraph: DATA JPA에서 fetch 조인을 어노테이션으로 대신하는 기능
     @EntityGraph(attributePaths = "roles")
     Optional<G_User> findByLoginId(String loginId);
 
