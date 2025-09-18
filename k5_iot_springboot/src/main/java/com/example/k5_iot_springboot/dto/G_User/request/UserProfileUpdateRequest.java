@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 
 
 
-public record UserProfileUpdateRequest(
+public record  UserProfileUpdateRequest(
         @NotBlank @Size(max = 50)
         String nickname,
         Gender gender

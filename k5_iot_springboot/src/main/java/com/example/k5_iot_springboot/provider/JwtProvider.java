@@ -4,6 +4,8 @@ package com.example.k5_iot_springboot.provider;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -60,6 +62,7 @@ public class JwtProvider {
     // 환경변수에 지정한 비밀키와 만료 시간 저장 변수 선언
     private final SecretKey key;
     private final long jwtExpirationMs;
+    private final long jwtEmailExpirationMs;
     private final int clockSkewSeconds;
 
     // 검증/파싱 파서 : 파서를 생성자에서 1회 구성하여 재사용 - 성능 및 일관성 보장(JJWT의 파서 객체)
@@ -72,6 +75,7 @@ public class JwtProvider {
             // -----------필수사항------------//
             @Value("${jwt.secret}") String secret, //cf) Base64 인코딩된 비밀키 문자열이어야 함
             @Value("${jwt.expiration}") long jwtExpirationMs,
+            @Value("${jwt.email-expiration}") long jwtEmailExpirationMs,
             // -----------선택사항------------//
             @Value("${jwt.clock-skew-seconds:0}") int clockSkewSeconds // 기본 0 - 옵션
 
@@ -87,6 +91,7 @@ public class JwtProvider {
         //HMAC-SHA 알고리즘으로 암호화된 키 생성
         this.key = Keys.hmacShaKeyFor(secretBytes); // HMAC-SHA 용 SecretKey 객체 생성
         this.jwtExpirationMs = jwtExpirationMs;
+        this.jwtEmailExpirationMs = jwtEmailExpirationMs;
         this.clockSkewSeconds = Math.max(clockSkewSeconds, 0); // 음수 방지
 
         this.parser = Jwts.parser()
@@ -122,6 +127,19 @@ public class JwtProvider {
                 //.signWith(key, SignatureAlgorithm.HS256)
                 .signWith(key) // 서명 키로 서명(자동 HS256 선택) - 비밀키 설정
                 .compact(); // 빌더를 압축하여 최종 JWT 문자열 생성
+    }
+    public String generateEmailJwtToken(String email) {
+        return Jwts.builder()
+                .claim("email",email)
+                .issuedAt(new Date())
+                .expiration(new Date(System.currentTimeMillis()+jwtEmailExpirationMs))
+                .signWith(key, SignatureAlgorithm.HS256)
+                .compact();
+    }
+
+    public String getEmailFromJwt(String token) {
+        Claims claims = getClaims(token);
+        return claims.get("email", String.class);
     }
     /* ========
      * Bearer 처리
@@ -240,4 +258,7 @@ public class JwtProvider {
         Claims c = parseClaimsInternal(tokenWithoutBearer, true);
         return c.getExpiration().getTime() - System.currentTimeMillis();
     }
+
+
+
 }

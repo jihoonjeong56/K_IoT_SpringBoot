@@ -25,5 +25,4 @@ public record PostCreateRequestDto (
         @Size(max = 100, message = "작성자는 최대 100자 까지 입력 가능합니다.")
         String author
 ) {
-
 }
