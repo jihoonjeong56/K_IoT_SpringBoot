@@ -74,6 +74,12 @@ public class ApiMappingPattern {
         public static final String ADJUST = "/{adjust}";
         public static final String PRODUCT_ID = "/{productId}";
     }
+    public static final class Project{
+        private Project(){}
+        public static final String ROOT = BASE + "/project";
+        public static final String ONLY_ID = "/{projectId}";
+        public static final String SEARCH ="/search";
+    }
 
 
 }

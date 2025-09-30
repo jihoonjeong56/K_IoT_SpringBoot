@@ -116,6 +116,25 @@ CREATE TABLE IF NOT EXISTS `users` (
   COMMENT = '사용자';
 
 SELECT * FROM users;
+-- 프로젝트 테이블
+-- ownerId -> 관리자
+CREATE TABLE IF NOT EXISTS `projects`(
+    id 				BIGINT PRIMARY KEY AUTO_INCREMENT,
+    owner_id  		BIGINT NOT NULL,
+    name 			VARCHAR(100) NOT NULL,
+    created_at		DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    updated_at 		DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+    CONSTRAINT `uk_projects_name` UNIQUE (name),
+    CONSTRAINT `fk_projects_user_id` FOREIGN KEY (owner_id) REFERENCES users (id) ON DELETE CASCADE,
+    INDEX idx_projects_name (name),
+    INDEX idx_projects_createdAt (created_at)
+)ENGINE=InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci
+  COMMENT = '프로젝트';
+
+
+
 
 # 0910 (G_Role)
 -- 권한 코드 테이블
@@ -159,7 +178,8 @@ INSERT INTO user_roles (user_id, role_name) VALUES
     (3, 'MANAGER'),
     (3, 'ADMIN')
     ON DUPLICATE KEY UPDATE role_name = VALUES(role_name);
-    
+    insert into user_roles (user_id, role_name)
+    values(1, 'ADMIN');
 SELECT * FROM user_roles;
 
 ##### 사용하지 않음 #####
