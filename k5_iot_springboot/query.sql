@@ -410,4 +410,14 @@ SELECT * FROM `orders`;
 SELECT * FROM `order_items`;
 SELECT * FROM `order_logs`;
 
+CREATE TABLE `notice`(
+	id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    author VARCHAR(100) NOT NULL,
+	created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+SELECT * FROM notice;
+
+
 USE k5_iot_springboot;
