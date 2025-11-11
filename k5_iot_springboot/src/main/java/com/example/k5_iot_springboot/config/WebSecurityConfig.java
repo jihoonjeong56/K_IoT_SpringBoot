@@ -75,10 +75,10 @@ public class WebSecurityConfig {
         // 표준 인증 흐름(UserDetailsService 등)을 사용할 수 있음
         return configuration.getAuthenticationManager();
     }
-
     /* ==========
      * CORS
      *
+
      * cf) CORS (Cross Origin Resource Sharing)
      *  : 브라우저(예: 4178)에서 다른 도메인(Tomcat 서버: 8080)으로부터 리소스를 요청할 때 발생하는 보안 정책
      *  - REST API 사용 시 다른 출처(도메인)에서 API에 접근할 수 있도록 허용하는 정책
@@ -96,9 +96,9 @@ public class WebSecurityConfig {
         config.setAllowedOriginPatterns(origins);                   // 2) Origin 설정 - 도메인 매칭
         // >> 허용 origin을 *로 둘 수 없음 (반드시 구체적인 도메인이어야 함)
         config.setAllowedHeaders(splitToList(allowedHeaders));      // 3) 요청 헤더 화이트리스트
-        config.setAllowedMethods(splitToList(allowedMethods));      // 4) 요청 허용 메서드
-        config.setExposedHeaders(splitToList(exposedHeaders));      // 5) 응답에서 클라이언트가 읽을 수 있는 헤더
+        config.setAllowedMethods(splitToList(allowedMethods));      // 4) 요청 허용 메서드이언트가 읽을 수 있는 헤더
 
+        config.setExposedHeaders(splitToList(exposedHeaders));      // 5) 응답에서 클라
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config); // 모든 경로에 동일 CORS 정책 적용
         return source;

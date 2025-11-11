@@ -62,6 +62,7 @@ public class JwtProvider {
     // 환경변수에 지정한 비밀키와 만료 시간 저장 변수 선언
     private final SecretKey key;
     private final long jwtExpirationMs;
+    private final long jwtRefreshExpirationMs;
     private final long jwtEmailExpirationMs;
     private final int clockSkewSeconds;
 
@@ -75,6 +76,7 @@ public class JwtProvider {
             // -----------필수사항------------//
             @Value("${jwt.secret}") String secret, //cf) Base64 인코딩된 비밀키 문자열이어야 함
             @Value("${jwt.expiration}") long jwtExpirationMs,
+            @Value("${jwt.refresh-expiration}") long jwtRefreshExpirationMs,
             @Value("${jwt.email-expiration}") long jwtEmailExpirationMs,
             // -----------선택사항------------//
             @Value("${jwt.clock-skew-seconds:0}") int clockSkewSeconds // 기본 0 - 옵션
@@ -91,6 +93,7 @@ public class JwtProvider {
         //HMAC-SHA 알고리즘으로 암호화된 키 생성
         this.key = Keys.hmacShaKeyFor(secretBytes); // HMAC-SHA 용 SecretKey 객체 생성
         this.jwtExpirationMs = jwtExpirationMs;
+        this.jwtRefreshExpirationMs = jwtRefreshExpirationMs;
         this.jwtEmailExpirationMs = jwtEmailExpirationMs;
         this.clockSkewSeconds = Math.max(clockSkewSeconds, 0); // 음수 방지
 
@@ -110,9 +113,23 @@ public class JwtProvider {
      *                 : subject=sub(username), roles는 커스텀 클레임
      */
     public String generateJwtToken(String username, Set<String> roles) {
+        return buildToken(username, roles, jwtExpirationMs);
+    }
+
+    /**
+     * 리프레시 토큰 생성
+     */
+    public String generateRefreshToken(String username, Set<String> roles) {
+        return buildToken(username, roles, jwtRefreshExpirationMs);
+    }
+
+    /**
+     * 공통 빌드 로직 (Access + Refresh)
+     */
+    private String buildToken(String username, Set<String> roles, long expirationMS) {
         long now = System.currentTimeMillis();
         Date iat = new Date(now);
-        Date exp = new Date(now + jwtExpirationMs);
+        Date exp = new Date(now + expirationMS);
         // List로 변환한여 직렬화 시 타입 안정성 확보
         List<String> roleList = (roles == null) ? List.of() : new ArrayList<>(roles);
         return Jwts.builder()
@@ -128,11 +145,12 @@ public class JwtProvider {
                 .signWith(key) // 서명 키로 서명(자동 HS256 선택) - 비밀키 설정
                 .compact(); // 빌더를 압축하여 최종 JWT 문자열 생성
     }
+
     public String generateEmailJwtToken(String email) {
         return Jwts.builder()
-                .claim("email",email)
+                .claim("email", email)
                 .issuedAt(new Date())
-                .expiration(new Date(System.currentTimeMillis()+jwtEmailExpirationMs))
+                .expiration(new Date(System.currentTimeMillis() + jwtEmailExpirationMs))
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }
@@ -197,7 +215,7 @@ public class JwtProvider {
     /**
      * 토큰 유효성 검사(서명/만료포함)
      * clock-skew 허용 적용
-     *
+     * <p>
      * >>컨트롤러/필터에서 사용가능한 토큰인지 허영 여부 확인
      */
     public boolean isValidToken(String tokenWithoutBearer) {
@@ -219,10 +237,11 @@ public class JwtProvider {
 
     }
 
-    /**실제 페이로드값(Claims값 추출)
-     *  : sub(.getSubject())
-     *  : 커스텀 클레임(.get("클레임명"))
-     * */
+    /**
+     * 실제 페이로드값(Claims값 추출)
+     * : sub(.getSubject())
+     * : 커스텀 클레임(.get("클레임명"))
+     */
     public String getUsernameFromJwt(String tokenWithoutBearer) {
         return getClaims(tokenWithoutBearer).getSubject();
     }
@@ -258,7 +277,6 @@ public class JwtProvider {
         Claims c = parseClaimsInternal(tokenWithoutBearer, true);
         return c.getExpiration().getTime() - System.currentTimeMillis();
     }
-
 
 
 }

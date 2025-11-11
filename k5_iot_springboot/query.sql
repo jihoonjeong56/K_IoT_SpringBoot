@@ -223,6 +223,15 @@ CREATE TABLE IF NOT EXISTS `articles` (
 
 SELECT * FROM articles;
 
+INSERT INTO articles (title, content, author_id, created_at, updated_at)
+VALUES
+('기사1', '기사1의 내용', 1, NOW(6), NOW(6)),
+('기사2', '기사2의 내용', 1, NOW(6), NOW(6)),
+('기사3', '기사3의 내용', 1, NOW(6), NOW(6)),
+('기사4', '기사4의 내용', 1, NOW(6), NOW(6)),
+('기사5', '기사5의 내용', 1, NOW(6), NOW(6)),
+('기사6', '기사6의 내용', 1, NOW(6), NOW(6));
+
 -- 0901 (주문 관리 시스템)
 -- 트랜잭션, 트리거, 인덱스, 뷰 학습
 # products(상품), stocks(재고)
@@ -421,3 +430,17 @@ SELECT * FROM notice;
 
 
 USE k5_iot_springboot;
+
+CREATE TABLE IF NOT EXISTS `refresh_tokens`(
+	id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    username VARCHAR(100) NOT NULL,
+    token VARCHAR(512) NOT NULL,
+    expiry BIGINT NOT NULL,
+    
+    UNIQUE KEY `uk_refresh_username`(username),
+    UNIQUE KEY `uk_refresh_token`(token)
+
+)ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci
+  COMMENT = 'JWT Refresh Token 저장 테이블';
