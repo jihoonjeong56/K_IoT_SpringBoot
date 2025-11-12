@@ -114,6 +114,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_unicode_ci
   COMMENT = '사용자';
+  insert into users 
+  values('qwer1', 'qwer1234','qwer1234@example.com','qwer1',null,now(), now());
 
 SELECT * FROM users;
 -- 프로젝트 테이블
@@ -444,3 +446,33 @@ CREATE TABLE IF NOT EXISTS `refresh_tokens`(
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_unicode_ci
   COMMENT = 'JWT Refresh Token 저장 테이블';
+  
+SELECT * FROM `refresh_tokens`;
+
+CREATE TABLE IF NOT EXISTS trucks(
+	id bigint auto_increment primary key,
+    owner_id bigint not null,
+    name  varchar(100) not null,
+    category varchar(50) ,
+    region varchar(50),
+    description varchar(255),
+    constraint fk_trucks_user foreign key (owner_id) references users(id)
+    
+)ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci
+  COMMENT = '푸트트럭 테이블';
+  
+create table reservations(
+id bigint auto_increment primary key,
+truck_id bigint not null,
+user_id bigint not null,
+date DATE not null,
+time_slot varchar(20) not null,
+status varchar(20) not null,
+constraint fk_reservations_truck foreign key (truck_id) references trucks(id),
+constraint fk_reservations_user foreign key (user_id) references users(id)
+)ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci
+  COMMENT = '예약 테이블';

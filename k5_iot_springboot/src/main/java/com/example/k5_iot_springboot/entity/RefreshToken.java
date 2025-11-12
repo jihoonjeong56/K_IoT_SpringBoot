@@ -9,13 +9,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "refresh_tokens"
-        ,
-        uniqueConstraints = {
-                @UniqueConstraint(name = "uk_refresh_username", columnNames = "username"),
-                @UniqueConstraint(name = "uk_refresh_token", columnNames = "token")
-        }
-)
+@Table(name = "refresh_tokens")
 public class RefreshToken {
 
     @Id
