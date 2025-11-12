@@ -21,8 +21,18 @@ public class ReservationController {
     @GetMapping
     public ResponseEntity<ResponseDto<List<ReservationResponseDto>>> getReservationsByTruck(
             @PathVariable Long truckId
-    ){
+    ) {
         ResponseDto<List<ReservationResponseDto>> result = reservationService.getReservationsByTruck(truckId);
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/{reservationId}")
+    public ResponseEntity<ResponseDto<ReservationResponseDto>> getReservation(
+            @PathVariable Long truckId,
+            @PathVariable Long reservationId
+    ) {
+        ResponseDto<ReservationResponseDto> result = reservationService.getReservation(truckId, reservationId);
+
         return ResponseEntity.ok(result);
     }
 }
